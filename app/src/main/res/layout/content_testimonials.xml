@@ -8,4 +8,6 @@
     tools:context="com.isummit.om.sample.Testimonials"
     tools:showIn="@layout/activity_testimonials">
 
+
+
 </android.support.constraint.ConstraintLayout>
