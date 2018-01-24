@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
@@ -20,16 +22,16 @@ import com.google.android.youtube.player.YouTubePlayerFragment;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TabFragment1 extends Fragment{
+public class TabFragment1 extends Fragment {
     private TextView txtTimerDay, txtTimerHour, txtTimerMinute, txtTimerSecond;
     private TextView tvEvent;
     private Handler handler;
     private Runnable runnable;
 
-    View rootView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView= inflater.inflate(R.layout.tab_fragment_1, container, false);
+        View rootView= inflater.inflate(R.layout.tab_fragment_1, container, false);
 
         txtTimerDay = (TextView) rootView.findViewById(R.id.txtTimerDay);
         txtTimerHour = (TextView) rootView.findViewById(R.id.txtTimerHour);
@@ -83,10 +85,7 @@ public class TabFragment1 extends Fragment{
     }
 
     public void textViewGone() {
-        rootView.findViewById(R.id.LinearLayout10).setVisibility(View.GONE);
-        rootView.findViewById(R.id.LinearLayout11).setVisibility(View.GONE);
-        rootView.findViewById(R.id.LinearLayout12).setVisibility(View.GONE);
-        rootView.findViewById(R.id.LinearLayout13).setVisibility(View.GONE);
+        Toast.makeText(getContext(),"gjf",Toast.LENGTH_SHORT).show();
     }
 
 

@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/linears"
         android:orientation="horizontal">
 
         <TextView
@@ -26,7 +25,6 @@
             android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/LinearLayout10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -57,7 +55,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearLayout11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,7 +86,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearLayout12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -120,7 +116,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LinearLayout13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -151,12 +146,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_view"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="22dp" />
+
 
 </RelativeLayout>

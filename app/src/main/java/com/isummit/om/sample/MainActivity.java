@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -20,6 +23,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.time.chrono.MinguoChronology;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
@@ -118,11 +122,16 @@ public class MainActivity extends AppCompatActivity
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.aboutus) {
 
-        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_slideshow) {
+
+
+        } else if (id == R.id.guests) {
+            Intent guest=new Intent(MainActivity.this,Guests.class);
+            startActivity(guest);
+
+        } else if (id == R.id.aboutus) {
 
         } else if (id == R.id.nav_share) {
 
