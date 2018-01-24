@@ -41,6 +41,7 @@
                 android:icon="@drawable/ic_map_black_24dp"
                 android:title="Locate us" />
             <item
+                android:id="@+id/feedback"
                 android:icon="@drawable/ic_feedback_black_24dp"
                 android:title="Feedback" />
             <item

@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/feed"
+
     android:layout_height="match_parent"
     tools:context="com.isummit.om.sample.FeedBack">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/Feed"
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/feed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/feeds"
+        android:gravity="center"
+        android:hint="Enter Name(Optional)"
+        android:textColor="@color/cardview_light_background"
+        android:textColorHint="#ffffff" />
+
+
+    <EditText
+        android:id="@+id/tvValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/fedds"
+        android:gravity="center"
+        android:hint="Suggestion..."
+        android:minLines="7"
+        android:nestedScrollingEnabled="true"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="#ffffff" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/btn"
+        android:elevation="4dp"
+        android:text="Button"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.event) {
 
+        } else if(id==R.id.feedback){
+            Intent feeds=new Intent(MainActivity.this,FeedBack.class);
+            startActivity(feeds);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
