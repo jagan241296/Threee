@@ -1,6 +1,7 @@
 package com.isummit.om.sample;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,9 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ViewPager viewPager;
+    private PagerAdapter adapter;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +40,16 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
 
-        tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("About us"));
-        tabLayout.addTab(tabLayout.newTab().setText("Schedule"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home_icon));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_about_us));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_event_black_24dp));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter
+         viewPager = (ViewPager) findViewById(R.id.pager);
+         adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -115,34 +119,77 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.invite) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "hello username,invited you to try 3i Summit App Click here to download ");
-            sendIntent.setType("text/plain");
-            startActivity(sendIntent);
-            // Handle the camera action
-        } else if (id == R.id.aboutus) {
 
+        switch (id)
+        {
+            case R.id.invite:
+            {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "hello username,invited you to try 3i Summit App Click here to download ");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                // Handle the camera action
+                break;
+            }
 
+            case R.id.aboutus:
+            {
+                TabLayout.Tab tab = tabLayout.getTabAt(1);
+                tab.select();
+                break;
+            }
+            case R.id.guests:
+            {
+                Intent guest=new Intent(MainActivity.this,Guest.class);
+                startActivity(guest);
+                break;
+            }
 
+            case R.id.event:
+            {
+                TabLayout.Tab tab = tabLayout.getTabAt(2);
+                tab.select();
+                break;
+            }
 
-        } else if (id == R.id.guests) {
-            Intent guest=new Intent(MainActivity.this,Guests.class);
-            startActivity(guest);
+            case R.id.feedback: {
+                Intent feeds=new Intent(MainActivity.this,FeedBack.class);
+                startActivity(feeds);
+                break;
+            }
 
-        } else if (id == R.id.aboutus) {
+            case R.id.testi: {
+                Intent testi=new Intent(MainActivity.this,Testimonials.class);
+                startActivity(testi);
+                break;
+            }
 
-        } else if (id == R.id.nav_share) {
+            case R.id.locate_us:
+            {
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=18.706676,73.658540(3I Summit 2018)");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                }
+                break;
+            }
 
-        } else if (id == R.id.event) {
+            case R.id.rate_us:
+            {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.brandslam.threeisummit")));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.brandslam.threeisummit")));
+                }
+                break;
+            }
 
-        } else if(id==R.id.feedback){
-            Intent feeds=new Intent(MainActivity.this,FeedBack.class);
-            startActivity(feeds);
-        } else if(id ==R.id.testi){
-            Intent testi=new Intent(MainActivity.this,Testimonials.class);
-            startActivity(testi);
+            case R.id.exit:
+            {
+                System.exit(1);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

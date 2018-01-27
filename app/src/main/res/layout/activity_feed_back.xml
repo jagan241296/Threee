@@ -61,7 +61,7 @@
         android:layout_marginTop="19dp"
         android:background="@drawable/btn"
         android:elevation="4dp"
-        android:text="Button"
+        android:text="Submit"
         android:textColor="#ffffff" />
 
 </RelativeLayout>
