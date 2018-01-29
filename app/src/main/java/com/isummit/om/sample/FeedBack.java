@@ -30,7 +30,7 @@ TextView tvs;
         tvs.startAnimation(fadeInAnimation );
         rootRef = FirebaseDatabase.getInstance().getReference();
         //database reference pointing to demo node
-        demoRef = rootRef.child("demo");
+        demoRef = rootRef.child("feedback");
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

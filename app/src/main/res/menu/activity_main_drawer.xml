@@ -23,6 +23,7 @@
             android:title="Event Schedule" />
 
         <item
+            android:id="@+id/gallery"
             android:icon="@drawable/ic_image_black_24dp"
             android:title="Gallery" />
 

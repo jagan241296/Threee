@@ -153,6 +153,13 @@ public class MainActivity extends AppCompatActivity
                 break;
             }
 
+            case R.id.gallery:
+            {
+                Intent testi=new Intent(MainActivity.this,GuestInfoDialogActivity.class);
+                startActivity(testi);
+                break;
+            }
+
             case R.id.feedback: {
                 Intent feeds=new Intent(MainActivity.this,FeedBack.class);
                 startActivity(feeds);

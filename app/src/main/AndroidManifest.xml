@@ -11,24 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+        <!--
+            <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity android:name=".FeedBack" />
         <activity
             android:name=".Testimonials"
             android:label="@string/title_activity_testimonials"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Guest" />
-        <activity android:name=".GuestListActivity"></activity>
+        <activity android:name=".GuestListActivity" />
+        <activity android:name=".ActivityAlumniAgenda" />
+        <activity android:name=".ActivitySummitAgenda" />
+        <activity android:name=".DataEntryActivity" />
+        <activity android:name=".GuestInfoDialogActivity"
+            android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
         app:cardBackgroundColor="@color/lightBlue"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
-        android:onClick="onCardClick">
+        android:onClick="onCardClickHR">
 
         <TextView
             android:id="@+id/textView_1"
@@ -64,7 +64,7 @@
         app:cardBackgroundColor="@color/lightBlue"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
-        android:onClick="onCardClick">
+        android:onClick="onCardClickCEO">
 
         <TextView
             android:id="@+id/textView_2"
@@ -104,7 +104,7 @@
         app:cardBackgroundColor="@color/lightBlue"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
-        android:onClick="onCardClick">
+        android:onClick="onCardClickAlumni">
 
         <TextView
             android:id="@+id/textView_3"
@@ -143,7 +143,7 @@
             app:cardBackgroundColor="@color/lightBlue"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="8dp"
-            android:onClick="onCardClick">
+            android:onClick="onCardClickChief">
 
             <TextView
                 android:id="@+id/textView_4"
@@ -183,7 +183,7 @@
         android:layout_below="@+id/cardView4"
         app:cardElevation="5dp"
         android:layout_marginTop="20dp"
-        android:onClick="onCardClick">
+        android:onClick="onCardClickIGI">
 
         <TextView
             android:id="@+id/textView_5"

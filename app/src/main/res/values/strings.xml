@@ -7,4 +7,45 @@
     <string name="Feed">Feedback</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_testimonials">Testimonials</string>
+
+    //Agenda Strings
+    <string name="timing">Timing</string>
+    <string name="parti">Particulars</string>
+    <string name="abft">10:00AM – 10:30AM</string>
+    <string name="awlcmt">10:30AM – 11:00AM</string>
+    <string name="afst">11:00AM – 11:40AM</string>
+    <string name="asst">11:40AM – 12:20PM</string>
+    <string name="ajgst">12:30PM – 1:30PM</string>
+    <string name="alt">1:30PM – 2:00PM</string>
+    <string name="abf">Breakfast</string>
+    <string name="awlcm">Joint Welcome (All Branches) \nat Vishveshwarya Hall.</string>
+    <string name="afs">1st Parallel Alumni Sessions \nin respective departments.</string>
+    <string name="ass">2nd Parallel Alumni Sessions \nin respective departments</string>
+    <string name="ajgs">Joint Guest Session \nat Vishveshwarya Hall</string>
+    <string name="al">Lunch</string>
+    <string name="htt">5:30PM-6:00PM</string>
+    <string name="nat">6:05PM-6:10PM</string>
+    <string name="avt">6:15PM – 6:25PM</string>
+    <string name="wlcmt">6:25PM – 6:30PM</string>
+    <string name="avt3">6:30PM – 6:33PM</string>
+    <string name="wlcmdt">6:35PM – 6:45PM</string>
+    <string name="a1t">6:45PM – 6:55PM</string>
+    <string name="a2t">6:55PM – 7:05PM</string>
+    <string name="qat">7:05PM  7:10PM</string>
+    <string name="cpt">7:10PM – 7:20PM</string>
+    <string name="hr1t">7:20PM – 7:30PM</string>
+    <string name="hr2t">7:30PM – 7:40PM</string>
+    <string name="aat">7:40PM – 8:00PM</string>
+    <string name="vott">8:00PM – 8:05PM</string>
+
+
+    //aboutUS Data
+    <string name="aboutus">IGI started the Indira International Innovation Summit in 2008 with an aim to promote the Industry – academia linkages to enable the Indira College of Engineering and Management (ICEM), Pune to emerge as a Leading technical manpower source, but today this summit has become a platform for rekindling the power of creativity and innovations which would drive future innovation in the Industry.\n
+    We are living in the era of “Digital India” where the entire country is in the process of getting digitalized. \n
+        Innovation functions as a stimulus for the growth of the industries and eventually development of the society making people’s lives easier and more comfortable.\n
+        We, at ICEM, strongly believe that innovation become a sine qua non for the very survival of any business and therefore nurture a culture of thinking out-of-the-box towards creating a successful career, amongst the students pursuing various professional courses within the institute.\n
+        The 9th 3I Summit aimed to offer a great learning experience to the students of Indira and to imbibe the spirit of innovation in them. The wealth of knowledge and experience available at the summit served as a motivation for the young generation at Indira, to realize the value of innovation and to benefit from the presence of ace practitioners.\n
+    </string>
+
+    <string name="test">Jagguuuuu</string>
 </resources>
