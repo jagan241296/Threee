@@ -44,6 +44,16 @@
         <activity android:name=".ActivitySummitAgenda" />
         <activity android:name=".DataEntryActivity" />
 
+
+        <activity android:name=".summit08" />
+        <activity android:name=".summit09" />
+        <activity android:name=".summit10" />
+        <activity android:name=".summit11" />
+        <activity android:name=".summit12" />
+        <activity android:name=".summit13" />
+        <activity android:name=".Prev"></activity>
+
+
         <activity android:name=".GuestInfoDialogActivity"
             android:theme="@android:style/Theme.Dialog"></activity>
     </application>

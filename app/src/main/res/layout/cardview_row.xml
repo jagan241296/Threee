@@ -12,13 +12,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="5dp"
         android:background="?android:selectableItemBackground">
 
 
         <TextView
             android:id="@+id/info_text"
             android:layout_width="250dp"
-            android:layout_height="75dp"
+            android:layout_height="80dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="34dp"
@@ -26,8 +27,6 @@
             android:text="Hello"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
-
-
 
         <ImageView
             android:id="@+id/imageView"

@@ -28,6 +28,7 @@
             android:title="Gallery" />
 
         <item
+            android:id="@+id/prev"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Previous Events" />
         <item

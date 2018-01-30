@@ -17,13 +17,15 @@ public class TestimonialCardViewAdapter extends RecyclerView.Adapter<Testimonial
 
     public List<String> testimonials;
     public List<String> testimonials_date;
+    public List<String> testimonials_username;
 
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public TestimonialCardViewAdapter(List testimonials, List testimonials_date) {
+    public TestimonialCardViewAdapter(List testimonials, List testimonials_date, List testimonials_username) {
         this.testimonials = testimonials;
         this.testimonials_date=testimonials_date;
+        this.testimonials_username=testimonials_username;
     }
 
     // Create new views (invoked by the layout manager)
@@ -46,6 +48,7 @@ public class TestimonialCardViewAdapter extends RecyclerView.Adapter<Testimonial
         // - get data from your itemsData at this position
         // - replace the contents of the view with that itemsData
 
+        viewHolder.tv_user.setText(testimonials_username.get(position));
         viewHolder.tv_message.setText(testimonials.get(position));
         viewHolder.tv_date.setText(testimonials_date.get(position));
 

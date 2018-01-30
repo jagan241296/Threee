@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitySummitAgenda"
+    android:background="@drawable/feed"
+    android:id="@+id/LL">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_below="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="middle"
+            >
+
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/head1"
+                    android:text="@string/timing"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/head2"
+                    android:text="@string/parti"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_height="500dp"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/htt"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="High Tea"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/nat"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="National Anthem"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/avt"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Indira Group Of Institutes A/V"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/wlcmt"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Welcome Note"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/avt3"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="AV on 3 i"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/wlcmdt"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Welcome Dance"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/a1t"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Set 1st Awards (Start Up)"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/a2t"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Set 2nd Awards (Start Up)"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/qat"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Q and A Session"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/cpt"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Cultural Performance"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/hr1t"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Set 1st HR Awards"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/hr2t"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Set 2nd HR Awards"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/aat"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Alumni Awards"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:height="60dp"
+                    android:text="@string/vott"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:textColor="#000000"
+                    android:padding="18dip" android:gravity="center"/>
+
+                <TextView
+                    android:height="60dp"
+                    android:text="Vote Of Thanks"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:textColor="#000000"
+                    android:padding="18dip"
+                    android:gravity="center"/>
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+</RelativeLayout>

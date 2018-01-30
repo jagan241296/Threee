@@ -2,6 +2,8 @@ package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -30,13 +32,16 @@ public class Testimonials extends AppCompatActivity {
     private DatabaseReference rootRef;
     private List<String> testimonials = new ArrayList<>();
     private List<String> testimonials_date = new ArrayList<>();
+    private List<String> testimonials_username = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     String name="";
     String[] split_data;
     private ProgressDialog progress;
-
+    String USERNAME_KEY ="UserName";
+    String EMAIL_KEY = "email";
+    String prefName = "userNamePref";
 
 
 
@@ -44,7 +49,7 @@ public class Testimonials extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("Testimoni");
+        mToolbar.setTitle("Testimonials");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -55,7 +60,6 @@ public class Testimonials extends AppCompatActivity {
                 finish();
             }
         });
-
         //Progress Bar
         progress = new ProgressDialog(this);
         progress.setTitle("Loading");
@@ -69,6 +73,7 @@ public class Testimonials extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(Testimonials.this);
 
                 alert.setTitle("Add a Testimonial");
@@ -81,12 +86,22 @@ public class Testimonials extends AppCompatActivity {
                 //database reference pointing to demo node
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+
+                        SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
+                        String userName = userPrefs.getString(USERNAME_KEY, "");
+                        String email = userPrefs.getString(EMAIL_KEY, "");
+
+                        if(userName==""||email=="")
+                        {
+                            startActivity(new Intent(Testimonials.this, RegistrationActivity.class));
+                            finish();
+                        }
                         String value,format,message;
                         value = input.getText().toString().trim();
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
                         format = simpleDateFormat.format(new Date());
-                        message=value+"_"+format;
-                        rootRef.child(format.toString()).setValue(message);
+                        message=userName+"_"+value+"_"+format;
+                        rootRef.child(format).setValue(message);
                         progress.dismiss();
                         Toast.makeText(getApplicationContext(),"Testimonial added Successfully",Toast.LENGTH_SHORT).show();
                         onDataChanged();
@@ -95,7 +110,9 @@ public class Testimonials extends AppCompatActivity {
 
                 alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        dialog.cancel();                    }
+                        dialog.cancel();
+                        progress.dismiss();
+                    }
                 });
 
                 alert.show();
@@ -109,14 +126,17 @@ public class Testimonials extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference("testimonials");
         testimonials.clear();
         testimonials_date.clear();
+        testimonials_username.clear();
         rootRef.addChildEventListener(new ChildEventListener() {
            @Override
            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 for(DataSnapshot childSnapShot:dataSnapshot.getChildren()) {
                     name=childSnapShot.getValue().toString();
                     split_data=name.split("_");
-                    testimonials.add(split_data[0]);
-                    testimonials_date.add(split_data[1]);
+                    testimonials_username.add(split_data[0]);
+                    testimonials.add(split_data[1]);
+                    testimonials_date.add(split_data[2]);
+
                 }
                 FillListView();
            }
@@ -155,7 +175,7 @@ public class Testimonials extends AppCompatActivity {
 
         // specify an adapter (see also next example)
 
-        mAdapter = new TestimonialCardViewAdapter(testimonials, testimonials_date);
+        mAdapter = new TestimonialCardViewAdapter(testimonials, testimonials_date,testimonials_username);
         mAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter( mAdapter );
     }
@@ -166,6 +186,7 @@ public class Testimonials extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference("testimonials");
         testimonials.clear();
         testimonials_date.clear();
+        testimonials_username.clear();
 
         rootRef.orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
@@ -173,10 +194,9 @@ public class Testimonials extends AppCompatActivity {
                 for(DataSnapshot childSnapShot:dataSnapshot.getChildren()) {
                     name=childSnapShot.getValue().toString();
                     split_data=name.split("_");
-                    //System.out.println("data split: "+split_data[0]+"Next: "+split_data[1]);
-                    testimonials.add(split_data[0]);
-                    testimonials_date.add(split_data[1]);
-
+                    testimonials_username.add(split_data[0]);
+                    testimonials.add(split_data[1]);
+                    testimonials_date.add(split_data[2]);
                 }
                 FillListView();
             }
