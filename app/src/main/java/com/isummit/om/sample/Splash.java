@@ -2,23 +2,22 @@ package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Splash extends AppCompatActivity {
-    private static int SPLASH_SCREEN_OUT = 1000;
     private ProgressBar mProgress;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    String USERNAME_KEY ="UserName";
+    String prefName = "userNamePref";
 
 
     @Override
@@ -75,23 +74,20 @@ public class Splash extends AppCompatActivity {
         protected void onPostExecute(Integer result) {
             System.out.println("Reached post execute");
 
-            mAuthListener = new FirebaseAuth.AuthStateListener() {
-                @Override
-                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    if (user != null) {
-                        startActivity(new Intent(Splash.this, MainActivity.class));
-                        finish();
-                    }
-                    else
-                    {
-                        startActivity(new Intent(Splash.this, RegistrationActivity.class));
-                        finish();
-                    }
-                }
-            };
-            startActivity(new Intent(Splash.this, MainActivity.class));
-            finish();
+            SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
+            String userName = userPrefs.getString(USERNAME_KEY, "");
+
+            if(userName=="")
+            {
+                startActivity(new Intent(Splash.this, RegistrationActivity.class));
+                finish();
+            }
+            else
+            {
+                startActivity(new Intent(Splash.this, MainActivity.class));
+                finish();
+            }
+
         }
     }
 }

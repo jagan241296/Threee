@@ -1,6 +1,8 @@
 package com.isummit.om.sample;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,37 +17,58 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
-    private EditText email, mobile;
+    private EditText email, mobile,fullname;
     private Button register;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    String USERNAME_KEY ="UserName";
+    String EMAIL_KEY = "email";
+    String CONTACT = "mobile";
+    String prefName = "userNamePref",record;
+    private DatabaseReference rootRef;
+    private ProgressDialog progress;
+    String email_value,mobile_value,fullnam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait while fetching data..");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+
+
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
+        fullname=findViewById(R.id.username);
         email=findViewById(R.id.email);
         mobile=findViewById(R.id.mobile);
         register=findViewById(R.id.register_button);
-        progressBar=findViewById(R.id.progressBar);
 
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email_value,mobile_value;
 
+
+                fullnam=fullname.getText().toString();
                 email_value=email.getText().toString();
                 mobile_value=mobile.getText().toString();
 
+                if (TextUtils.isEmpty(fullnam)) {
+                    Toast.makeText(getApplicationContext(), "Enter a name", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email_value)) {
-                    Toast.makeText(getApplicationContext(), "Please Enter a Email ID!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter your Email ID!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -59,28 +82,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+                progress.show();
+                rootRef= FirebaseDatabase.getInstance().getReference("Registered");
+                record=fullnam+"_"+email_value+"_"+mobile_value;
+                rootRef.setValue(record);
+                savePreferences();
 
-                //create user
-                auth.createUserWithEmailAndPassword(email_value, mobile_value)
-                        .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                progressBar.setVisibility(View.GONE);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(RegistrationActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(RegistrationActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-                                    finish();
-                                }
-                            }
-                        });
             }
         });
 
@@ -89,6 +96,19 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        progressBar.setVisibility(View.GONE);
+        progress.dismiss();
+    }
+
+    public void savePreferences(){
+        SharedPreferences prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = prefs.edit();
+        prefEditor.putString(USERNAME_KEY, fullnam);
+        prefEditor.putString(EMAIL_KEY, email_value);
+        prefEditor.putString(CONTACT, mobile_value);
+        prefEditor.commit();
+        progress.dismiss();
+
+        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
