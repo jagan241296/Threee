@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RegistrationActivity extends AppCompatActivity {
     private EditText email, mobile,fullname;
     private Button register;
@@ -30,22 +33,13 @@ public class RegistrationActivity extends AppCompatActivity {
     String CONTACT = "mobile";
     String prefName = "userNamePref",record;
     private DatabaseReference rootRef;
-    private ProgressDialog progress;
     String email_value,mobile_value,fullnam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-        progress = new ProgressDialog(this);
-        progress.setTitle("Loading");
-        progress.setMessage("Please wait while fetching data..");
-        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
-
-
-        //Get Firebase auth instance
-        auth = FirebaseAuth.getInstance();
+        progressBar=findViewById(R.id.progressBar);
 
         fullname=findViewById(R.id.username);
         email=findViewById(R.id.email);
@@ -82,10 +76,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                progress.show();
+                progressBar.setVisibility(View.VISIBLE);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+                String format = simpleDateFormat.format(new Date());
                 rootRef= FirebaseDatabase.getInstance().getReference("Registered");
                 record=fullnam+"_"+email_value+"_"+mobile_value;
-                rootRef.setValue(record);
+                rootRef.child(format).setValue(record);
                 savePreferences();
 
             }
@@ -96,7 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        progress.dismiss();
+        progressBar.setVisibility(View.GONE);
     }
 
     public void savePreferences(){
@@ -106,7 +102,7 @@ public class RegistrationActivity extends AppCompatActivity {
         prefEditor.putString(EMAIL_KEY, email_value);
         prefEditor.putString(CONTACT, mobile_value);
         prefEditor.commit();
-        progress.dismiss();
+        progressBar.setVisibility(View.GONE);
 
         Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
         startActivity(intent);
