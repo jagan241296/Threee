@@ -210,7 +210,8 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.gallery:
             {
-
+                Intent gallery=new Intent(MainActivity.this,DisplayImageButtonActivity.class);
+                startActivity(gallery);
                 break;
             }
 

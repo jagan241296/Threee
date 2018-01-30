@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -42,33 +43,46 @@ public class summit08 extends AppCompatActivity {
     LayoutInflater layoutInflater;
     ViewGroup container;
     RelativeLayout relativeLayout;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progress = new ProgressDialog(summit08.this);
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait while fetching data..");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.setIndeterminate(true);
+        progress.show();
         setContentView(R.layout.activity_summit08);
 
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("Testimonials");
+        mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+
+                // Your code
+                finish();
+            }
+        });
 
 
         try {
+
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             myRef.keepSynced(true);
         }catch (Exception e){
-
-
         }
+        imageView=findViewById(R.id.image);
 
-
-
-
-        imageView=(ImageView)findViewById(R.id.image);
-
-        date=(TextView)findViewById(R.id.date);
-       venue=(TextView)findViewById(R.id.venue);
-        theme=(TextView)findViewById(R.id.theme);
-        tvs=(TextView)findViewById(R.id.TextViews);
-        imgs=(ImageView)findViewById(R.id.img2);
+        date=findViewById(R.id.date);
+       venue=findViewById(R.id.venue);
+        theme=findViewById(R.id.theme);
+        tvs=findViewById(R.id.TextViews);
+        imgs=findViewById(R.id.img2);
 
 
 
@@ -77,6 +91,8 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 tvs.setText(val);
+                progress.dismiss();
+
             }
 
             @Override
@@ -89,6 +105,9 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 date.setText(val);
+                progress.dismiss();
+
+
             }
 
             @Override
@@ -103,6 +122,8 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 venue.setText(val);
+                progress.dismiss();
+
             }
 
             @Override
@@ -115,6 +136,8 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 theme.setText(val);
+                progress.dismiss();
+
             }
 
             @Override
@@ -122,6 +145,7 @@ public class summit08 extends AppCompatActivity {
 
             }
         });
+        progress.show();
         Glide.with(this /* context */)
                 .using(new FirebaseImageLoader())
                 .load(storageReference)
@@ -131,6 +155,8 @@ public class summit08 extends AppCompatActivity {
                 .using(new FirebaseImageLoader())
                 .load(st)
                 .into(imgs);
+        progress.dismiss();
+
 
 
 

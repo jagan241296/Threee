@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityAlumniAgenda">
+    tools:context=".ActivityAlumniAgenda"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -23,153 +24,169 @@
 
 
 
-    <TableLayout
+
+    <ScrollView
         android:layout_below="@+id/appbarlayout"
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        ><LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:divider="?android:attr/dividerHorizontal"
-        android:showDividers="middle"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
-        <TableRow
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:height="60dp"
-                android:id="@+id/head1"
-                android:text="@string/timing"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
-
-            <TextView
-                android:height="60dp"
-                android:id="@+id/head2"
-                android:text="@string/parti"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="18dip"
-                android:gravity="center"/>
-        </TableRow>
-
-        <TableRow
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am1"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
+            android:layout_gravity="center"
+            android:padding="10dp"
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/abft"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
+            android:text="@string/d1"
+            android:textColor="@color/dark_brown"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dip"
+            android:layout_width="match_parent"
+            android:background="@color/Indigo" />
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/abf"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="25dip"
-                android:gravity="center"/>
-        </TableRow>
 
-        <TableRow
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am2"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo"/>
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/awlcmt"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
-
-            <TextView
-                android:height="80dp"
-                android:text="@string/awlcm"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="18dip"
-                android:gravity="center"/>
-        </TableRow>
-        <TableRow
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
+            android:layout_gravity="center"
+            android:padding="10dp"
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/afst"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
+            android:text="@string/d2"
+            android:textAlignment="center"
+            android:textColor="@color/dark_brown" />
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/afs"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="18dip"
-                android:gravity="center"/>
-        </TableRow>
-        <TableRow
+
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dip"
+            android:layout_width="match_parent"
+            android:background="@color/Indigo" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:height="80dp"
-                android:text="@string/asst"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
-
-            <TextView
-                android:height="80dp"
-                android:text="@string/ass"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="18dip"
-                android:gravity="center"/>
-        </TableRow>
-        <TableRow
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am3"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo"/>
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
+            android:layout_gravity="center"
+            android:padding="10dp"
 
-            <TextView
-                android:height="80dp"
-                android:text="@string/ajgst"
-                android:layout_weight="1"
-                android:background="#fff"
-                android:textColor="#000000"
-                android:padding="18dip" android:gravity="center"/>
-
-            <TextView
-                android:height="80dp"
-                android:text="@string/ajgs"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:textColor="#000000"
-                android:padding="18dip"
-                android:gravity="center"/>
-        </TableRow>
+            android:text="@string/d3"
+            android:textColor="@color/dark_brown"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dip"
+            android:layout_width="match_parent"
+            android:background="@color/Indigo" />
 
 
-    </TableLayout>
+
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am4"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo"/>
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+
+            android:text="@string/d4"
+            android:textColor="@color/dark_brown"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dip"
+            android:layout_width="match_parent"
+            android:background="@color/Indigo" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am5"
+            android:textStyle="bold"
+            android:textColor="@color/Indigo"/>
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/d5"
+            android:textColor="@color/dark_brown"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dip"
+            android:layout_width="match_parent"
+            android:background="@color/Indigo" />
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
 
 
 </RelativeLayout>

@@ -5,4 +5,37 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black_color">#000000</color>
     <color name="lightBlue">#ab2f83d7</color>
+
+    //added
+
+    <color name="WHITE">#FFFFFF</color>
+    <color name="GREY_1">#EEEEEE</color>
+    <color name="GREY_2">#DDDDDD</color>
+    <color name="GREY_3">#CCCCCC</color>
+    <color name="GREY_4">#BBBBBB</color>
+    <color name="GREY_5">#AAAAAA</color>
+    <color name="GREY_6">#999999</color>
+    <color name="GREY_7">#888888</color>
+    <color name="GREY_8">#777777</color>
+    <color name="GREY_9">#666666</color>
+    <color name="BLACK">#000000</color>
+    <color name="Indigo">#3f51b5</color>
+    <color name="Amber"> #ffc107</color>
+    <color name="pink">#e91e63</color>
+    <color name="Blue_Grey"> #607d8b</color>
+    <color name="purple">#6A1B9A</color>
+    <color name="dark_blue">#0D47A1</color>
+    <color name="green">#4CAF50</color>
+    <color name="light_purple">#8E24AA</color>
+    <color name="light_pink">#EC407A</color>
+    <color name="light_red">#FF5252</color>
+    <color name="orange">#FF9800</color>
+    <color name="backdrop">#EDC66B</color>
+    <color name="dark_brown">#3E2723</color>
+    <color name="mahroon">#6C3227</color>
+    <color name="dark_green">#1B5E20</color>
+    <color name="royal_bue">#4169e1</color>
+    <color name="light_black">#424242</color>
+    <color name="light_blue">#64B5F6</color>
+
 </resources>
