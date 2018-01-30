@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.graphics.drawable.Icon.*;
 
 /**
  * Created by Sai_Kameswari on 26-01-2018.
@@ -26,15 +33,17 @@ import java.util.List;
 public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapter.ViewHolder> {
     public List<String> names;
     public List<String> record;
+    public List<String> names_url;
     public Context context;
 
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CardViewDataAdapter(List names, List record, Context context) {
+    public CardViewDataAdapter(List names, List record,List names_url, Context context) {
         this.names = names;
         this.context = context;
         this.record = record;
+        this.names_url=names_url;
     }
 
     // Create new views (invoked by the layout manager)
@@ -51,10 +60,15 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
+
+        String url=names_url.get(position).toString();
+        Picasso.with(context).load(url).into(viewHolder.img);
         viewHolder.tvtinfo_text.setText(names.get(position));
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -74,7 +88,7 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
             super(itemLayoutView);
             this.context=context;
             tvtinfo_text = (TextView) itemLayoutView.findViewById(R.id.info_text);
-            img=(ImageView)itemLayoutView.findViewById(R.id.imageView);
+            img= itemLayoutView.findViewById(R.id.imageView);
 
             itemLayoutView.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -85,7 +99,6 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
                     if(pos != RecyclerView.NO_POSITION){
 
                         String data=record.get(pos);
-                        //Toast.makeText(v.getContext(), "You clicked " + pos, Toast.LENGTH_SHORT).show();
                         passActivity(data);
                     }
                 }

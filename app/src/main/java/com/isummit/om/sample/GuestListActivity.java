@@ -36,6 +36,7 @@ public class GuestListActivity extends AppCompatActivity {
     private Button bt_status;*/
     private DatabaseReference rootRef;
     private List<String> names = new ArrayList<>();
+    private List<String> names_url = new ArrayList<>();
     private List<String> record = new ArrayList<>();
     private String name="";
     private String [] split_data;
@@ -78,8 +79,9 @@ public class GuestListActivity extends AppCompatActivity {
                 for(DataSnapshot childSnapShot:dataSnapshot.getChildren()) {
 
                     name=childSnapShot.getValue().toString();
-                    split_data=name.split("-");
+                    split_data=name.split("_");
                     names.add(split_data[0]);
+                    names_url.add(split_data[4]);
                     record.add(name);
                 }
                 setAdapterData();
@@ -103,7 +105,7 @@ public class GuestListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new CardViewDataAdapter(names,record,getBaseContext());
+        mAdapter = new CardViewDataAdapter(names,record,names_url,getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
 
     }
