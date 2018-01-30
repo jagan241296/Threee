@@ -2,6 +2,8 @@ package com.isummit.om.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
@@ -29,17 +31,24 @@ public class summit10 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summit10);
+
+        Toolbar mToolbar =  findViewById(R.id.toolbar);
+        mToolbar.setTitle("3I Summit 2010");
+        mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                // Your code
+                finish();
+            }
+        });
         try {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             myRef.keepSynced(true);
         }catch (Exception e){
-
-
         }
-
-
-
-
         imageView=(ImageView)findViewById(R.id.image);
 
         date=(TextView)findViewById(R.id.date);

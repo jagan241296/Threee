@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -27,19 +28,28 @@ public class Prev extends AppCompatActivity {
             "3i Summit '15",
             "3i Summit '16",
             "3i Summit '17"
-
     };
-
-
     int[] imageid={
             R.drawable.counter
-
-
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prev);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("3I Summits");
+        mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                // Your code
+                finish();
+            }
+        });
+
 
         CustomGrid adapter =new CustomGrid(Prev.this,web, imageid);
         grid=(GridView)findViewById(R.id.grid);
@@ -51,8 +61,6 @@ public class Prev extends AppCompatActivity {
 
                     Intent one=new Intent(Prev.this,summit08.class);
                     startActivity(one);
-
-
                 }
                 if (position == 1) {
                     Intent ones=new Intent(Prev.this,summit09.class);

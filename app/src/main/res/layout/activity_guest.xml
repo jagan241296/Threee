@@ -32,7 +32,8 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/black_wood_bg">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -41,7 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/lightBlue"
+        app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
         android:onClick="onCardClickHR">
@@ -53,6 +54,7 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:text="HR Awardees"
+            android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
         <View
@@ -70,6 +72,7 @@
             android:layout_marginTop="80dp"
             android:text="TextView"
             android:textSize="15dp"
+            android:textColor="@color/WHITE"
             android:textAlignment="center"/>
     </android.support.v7.widget.CardView>
 
@@ -80,7 +83,7 @@
         android:layout_alignStart="@+id/cardView"
         android:layout_below="@+id/cardView"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/lightBlue"
+        app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
         android:onClick="onCardClickCEO">
@@ -92,6 +95,7 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:text="Start-Up CEO's"
+            android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
         <View
@@ -110,6 +114,7 @@
             android:pointerIcon="arrow"
             android:text="TextView"
             android:textSize="15dp"
+            android:textColor="@color/WHITE"
             android:textAlignment="center"/>
     </android.support.v7.widget.CardView>
 
@@ -120,7 +125,7 @@
         android:layout_alignStart="@+id/cardView2"
         android:layout_below="@+id/cardView2"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/lightBlue"
+        app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
         android:onClick="onCardClickAlumni">
@@ -132,6 +137,7 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:text="Alumni Awardees"
+            android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
         <View
@@ -148,6 +154,7 @@
             android:layout_below="@+id/cardView2"
             android:layout_marginTop="80dp"
             android:text="TextView"
+            android:textColor="@color/WHITE"
             android:textSize="15dp"
             android:textAlignment="center"/>
     </android.support.v7.widget.CardView>
@@ -159,7 +166,7 @@
             android:layout_alignStart="@+id/cardView3"
             android:layout_below="@+id/cardView3"
             app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/lightBlue"
+            app:cardBackgroundColor="@color/light_black"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="8dp"
             android:onClick="onCardClickChief">
@@ -171,6 +178,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="20dp"
                 android:text="Chief Guests"
+                android:textColor="@color/WHITE"
                 android:textSize="25dp"/>
 
             <View
@@ -187,6 +195,7 @@
                 android:layout_below="@+id/cardView3"
                 android:layout_marginTop="80dp"
                 android:text="TextView"
+                android:textColor="@color/WHITE"
                 android:textSize="15dp"
                 android:textAlignment="center"/>
 
@@ -197,7 +206,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/lightBlue"
+        app:cardBackgroundColor="@color/light_black"
         android:layout_alignStart="@+id/cardView2"
         android:layout_below="@+id/cardView4"
         app:cardElevation="5dp"
@@ -211,6 +220,7 @@
             android:textAlignment="center"
             android:layout_marginTop="20dp"
             android:text="IGI Guests"
+            android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
         <View
@@ -229,6 +239,7 @@
             android:paddingBottom="5dp"
             android:text="TextView"
             android:textSize="15dp"
+            android:textColor="@color/WHITE"
             android:textAlignment="center"/>
     </android.support.v7.widget.CardView>
 

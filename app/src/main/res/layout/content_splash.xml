@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/balckmetal"
+    android:background="@drawable/splash_bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Splash"
     tools:showIn="@layout/activity_splash">
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:progressTint="@color/colorPrimary" />
+        android:progressTint="@color/light_purple" />
 
 
 </RelativeLayout>

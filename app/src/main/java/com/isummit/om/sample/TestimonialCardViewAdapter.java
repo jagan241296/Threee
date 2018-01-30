@@ -71,9 +71,9 @@ public class TestimonialCardViewAdapter extends RecyclerView.Adapter<Testimonial
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            tv_message = (TextView) itemLayoutView.findViewById(R.id.msg);
-            tv_user = (TextView) itemLayoutView.findViewById(R.id.user);
-            tv_date = (TextView) itemLayoutView.findViewById(R.id.date);
+            tv_message =  itemLayoutView.findViewById(R.id.msg);
+            tv_user =  itemLayoutView.findViewById(R.id.user);
+            tv_date =  itemLayoutView.findViewById(R.id.date);
 
 
 

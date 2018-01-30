@@ -32,32 +32,24 @@ import com.google.firebase.storage.StorageReference;
 import org.w3c.dom.Text;
 
 public class summit08 extends AppCompatActivity {
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("first");
-    StorageReference storageReference= FirebaseStorage.getInstance().getReference("2011/inaug.jpg");
-    StorageReference st= FirebaseStorage.getInstance().getReference("2011/picture_1.jpg");
     ImageView imageView,imgs,img2;
     TextView tvs,date,name,theme,venue;
     ImageButton imageButton;
-    ProgressDialog progressDoalog;
     LayoutInflater layoutInflater;
     ViewGroup container;
-    RelativeLayout relativeLayout;
     private ProgressDialog progress;
+
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+    private StorageReference storageReference;
+    private StorageReference st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        progress = new ProgressDialog(summit08.this);
-        progress.setTitle("Loading");
-        progress.setMessage("Please wait while fetching data..");
-        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
-        progress.setIndeterminate(true);
-        progress.show();
         setContentView(R.layout.activity_summit08);
-
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("Testimonials");
+        Toolbar mToolbar =  findViewById(R.id.toolbar);
+        mToolbar.setTitle("3I Summit 2008");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -71,6 +63,10 @@ public class summit08 extends AppCompatActivity {
 
 
         try {
+            database = FirebaseDatabase.getInstance();
+            myRef = database.getReference("first");
+            storageReference= FirebaseStorage.getInstance().getReference("2011/inaug.jpg");
+            st= FirebaseStorage.getInstance().getReference("2011/picture_1.jpg");
 
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             myRef.keepSynced(true);
@@ -91,7 +87,6 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 tvs.setText(val);
-                progress.dismiss();
 
             }
 
@@ -105,9 +100,6 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 date.setText(val);
-                progress.dismiss();
-
-
             }
 
             @Override
@@ -122,8 +114,6 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 venue.setText(val);
-                progress.dismiss();
-
             }
 
             @Override
@@ -136,8 +126,6 @@ public class summit08 extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String val=dataSnapshot.getValue(String.class);
                 theme.setText(val);
-                progress.dismiss();
-
             }
 
             @Override
@@ -145,7 +133,7 @@ public class summit08 extends AppCompatActivity {
 
             }
         });
-        progress.show();
+
         Glide.with(this /* context */)
                 .using(new FirebaseImageLoader())
                 .load(storageReference)
@@ -155,7 +143,8 @@ public class summit08 extends AppCompatActivity {
                 .using(new FirebaseImageLoader())
                 .load(st)
                 .into(imgs);
-        progress.dismiss();
+
+
 
 
 
