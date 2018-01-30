@@ -1,14 +1,18 @@
 package com.isummit.om.sample;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +31,12 @@ public class GuestListActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private  String category;
-    private TextView tv_gname, tv_desig, tv_profile, tv_company;
-    private Button bt_status;
+    private ProgressDialog  progress;
+   /* private TextView tv_gname, tv_desig, tv_profile, tv_company;
+    private Button bt_status;*/
     private DatabaseReference rootRef;
     private List<String> names = new ArrayList<>();
+    private List<String> record = new ArrayList<>();
     private String name="";
     private String [] split_data;
 
@@ -38,16 +44,32 @@ public class GuestListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycler_view);
+        setContentView(R.layout.recycler_view_guest);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("Guests");
+        mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         Bundle bundle = getIntent().getExtras();
         category=bundle.getString("category");
+        //Progress Bar
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait while fetching data..");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
+        // To dismiss the dialog
+
 
         //Get firebase instance
         rootRef= FirebaseDatabase.getInstance().getReference("Guests").child(category);
-
-
         //Get Children record
         names.clear();
         rootRef.orderByKey().addValueEventListener(new ValueEventListener() {
@@ -58,6 +80,7 @@ public class GuestListActivity extends AppCompatActivity {
                     name=childSnapShot.getValue().toString();
                     split_data=name.split("-");
                     names.add(split_data[0]);
+                    record.add(name);
                 }
                 setAdapterData();
             }
@@ -71,7 +94,7 @@ public class GuestListActivity extends AppCompatActivity {
 
     public void setAdapterData()
     {
-
+        progress.dismiss();
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
@@ -80,42 +103,9 @@ public class GuestListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new CardViewDataAdapter(names,getApplicationContext());
+        mAdapter = new CardViewDataAdapter(names,record,getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
-    }
 
-    public void onBClick(View view)
-    {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this);
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        View content =  inflater.inflate(R.layout.layout_guest_profile_dialog, null);
-        alertDialogBuilder.setView(content);
-        // set title
-        alertDialogBuilder.setTitle("Profile");
-        alertDialogBuilder.setView(R.layout.layout_guest_profile_dialog);
-        tv_gname=content.findViewById(R.id.tv_gname);
-        tv_desig=content.findViewById(R.id.tv_desig);
-        tv_company=content.findViewById(R.id.tv_company);
-        tv_profile=content.findViewById(R.id.tv_profile);
-        bt_status=content.findViewById(R.id.bt_status);
-
-        tv_gname.setText("sx");
-
-        // set dialog message
-        alertDialogBuilder
-                .setCancelable(false)
-                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();
     }
 
 }

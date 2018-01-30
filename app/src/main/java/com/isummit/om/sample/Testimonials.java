@@ -1,5 +1,6 @@
 package com.isummit.om.sample;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,10 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -24,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +35,7 @@ public class Testimonials extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     String name="";
     String[] split_data;
+    private ProgressDialog progress;
 
 
 
@@ -45,8 +43,25 @@ public class Testimonials extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("Testimoni");
+        mToolbar.setNavigationIcon(R.drawable.ic_action_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                // Your code
+                finish();
+            }
+        });
+
+        //Progress Bar
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait while fetching data..");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+
 
         onActivityLoad();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -61,16 +76,18 @@ public class Testimonials extends AppCompatActivity {
                 // Set an EditText view to get user input
                 final EditText input = new EditText(Testimonials.this);
                 alert.setView(input);
+                progress.show();
                 rootRef = FirebaseDatabase.getInstance().getReference("testimonials");
                 //database reference pointing to demo node
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String value,format,message;
-                     value = input.getText().toString().trim();
+                        value = input.getText().toString().trim();
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
                         format = simpleDateFormat.format(new Date());
                         message=value+"_"+format;
                         rootRef.child(format.toString()).setValue(message);
+                        progress.dismiss();
                         Toast.makeText(getApplicationContext(),"Testimonial added Successfully",Toast.LENGTH_SHORT).show();
                         onDataChanged();
                     }
@@ -84,12 +101,11 @@ public class Testimonials extends AppCompatActivity {
                 alert.show();
             }
         });
-
-
     }
 
     public void onDataChanged()
     {
+        progress.show();
         rootRef = FirebaseDatabase.getInstance().getReference("testimonials");
         testimonials.clear();
         testimonials_date.clear();
@@ -129,7 +145,7 @@ public class Testimonials extends AppCompatActivity {
 
     public void FillListView()
     {
-
+        progress.dismiss();
         mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
@@ -146,6 +162,7 @@ public class Testimonials extends AppCompatActivity {
 
     public void onActivityLoad()
     {
+        progress.show();
         rootRef = FirebaseDatabase.getInstance().getReference("testimonials");
         testimonials.clear();
         testimonials_date.clear();

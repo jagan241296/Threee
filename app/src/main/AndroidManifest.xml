@@ -32,11 +32,13 @@
             android:name=".Testimonials"
             android:label="@string/title_activity_testimonials"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".Guest" />
         <activity android:name=".GuestListActivity" />
         <activity android:name=".ActivityAlumniAgenda" />
         <activity android:name=".ActivitySummitAgenda" />
         <activity android:name=".DataEntryActivity" />
+
         <activity android:name=".GuestInfoDialogActivity"
             android:theme="@android:style/Theme.Dialog"></activity>
     </application>

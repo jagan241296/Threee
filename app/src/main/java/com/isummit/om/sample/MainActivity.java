@@ -40,6 +40,18 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(1);
+            }
+        });
+
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
 
@@ -155,8 +167,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.gallery:
             {
-                Intent testi=new Intent(MainActivity.this,GuestInfoDialogActivity.class);
-                startActivity(testi);
+
                 break;
             }
 
