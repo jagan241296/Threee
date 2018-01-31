@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayImagesActivity extends AppCompatActivity {
+public class Gallery extends AppCompatActivity {
 
     // Creating DatabaseReference.
     DatabaseReference databaseReference;
@@ -45,10 +45,10 @@ public class DisplayImagesActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         // Setting RecyclerView layout as LinearLayout.
-        recyclerView.setLayoutManager(new LinearLayoutManager(DisplayImagesActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Gallery.this));
 
         // Assign activity this to progress dialog.
-        progressDialog = new ProgressDialog(DisplayImagesActivity.this);
+        progressDialog = new ProgressDialog(Gallery.this);
 
         // Setting up message in Progress dialog.
         progressDialog.setMessage("Loading Images From Firebase.");
