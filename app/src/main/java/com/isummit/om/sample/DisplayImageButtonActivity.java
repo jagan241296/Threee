@@ -36,13 +36,9 @@ public class DisplayImageButtonActivity extends AppCompatActivity {
     public static final String Database_Path = "Images";
 
     // Creating button.
-    Button ChooseButton, UploadButton, DisplayImageButton;
+    Button  DisplayImageButton;
 
-    // Creating EditText.
-    EditText ImageName;
 
-    // Creating ImageView.
-    ImageView SelectImage;
 
     // Creating URI.
     Uri FilePathUri;
