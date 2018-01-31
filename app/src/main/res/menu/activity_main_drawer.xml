@@ -8,7 +8,7 @@
         <item
             android:id="@+id/invite"
             android:icon="@drawable/ic_menu_share"
-            android:title="invite" />
+            android:title="Invite" />
         <item
             android:id="@+id/aboutus"
             android:icon="@drawable/ic_about"
@@ -31,10 +31,16 @@
             android:id="@+id/prev"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Previous Events" />
+
         <item
             android:id="@+id/testi"
             android:icon="@drawable/ic_chat_bubble_black_24dp"
             android:title="Testimonials" />
+
+        <item
+            android:id="@+id/gatePass"
+            android:icon="@drawable/qrcode_scan"
+            android:title="Gate Pass" />
     </group>
 
     <item android:title="Communicate">
@@ -54,7 +60,7 @@
                 />
             <item
                 android:icon="@drawable/ic_exit_to_app_black_24dp"
-                android:title="exit"
+                android:title="Exit"
                 android:id="@+id/exit"/>
         </menu>
     </item>

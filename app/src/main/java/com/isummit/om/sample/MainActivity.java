@@ -244,6 +244,12 @@ public class MainActivity extends AppCompatActivity
                 break;
             }
 
+            case R.id.gatePass: {
+                Intent gatepass=new Intent(MainActivity.this,GatePass.class);
+                startActivity(gatepass);
+                break;
+            }
+
             case R.id.locate_us:
             {
                 Uri gmmIntentUri = Uri.parse("geo:0,0?q=18.706676,73.658540(3I Summit 2018)");
