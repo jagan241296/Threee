@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityAlumniAgenda"
-    android:background="@drawable/black_wood_bg"
+    android:background="@drawable/royalblue_bg2"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -48,7 +48,7 @@
             android:textSize="15dp"
             android:text="@string/am1"
             android:textStyle="bold"
-            android:textColor="@color/dark_blue"/>
+            android:textColor="@color/light_pink"/>
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
         <View
             android:layout_height="2dip"
             android:layout_width="match_parent"
-            android:background="@color/Indigo" />
+            android:background="@color/WHITE" />
 
 
 
@@ -76,7 +76,7 @@
             android:textSize="15dp"
             android:text="@string/am2"
             android:textStyle="bold"
-            android:textColor="@color/Indigo"/>
+            android:textColor="@color/light_pink"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -94,7 +94,7 @@
         <View
             android:layout_height="2dip"
             android:layout_width="match_parent"
-            android:background="@color/Indigo" />
+            android:background="@color/WHITE" />
 
 
 
@@ -109,7 +109,7 @@
             android:textSize="15dp"
             android:text="@string/am3"
             android:textStyle="bold"
-            android:textColor="@color/Indigo"/>
+            android:textColor="@color/light_pink"/>
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
         <View
             android:layout_height="2dip"
             android:layout_width="match_parent"
-            android:background="@color/Indigo" />
+            android:background="@color/WHITE" />
 
 
 
@@ -138,7 +138,7 @@
             android:textSize="15dp"
             android:text="@string/am4"
             android:textStyle="bold"
-            android:textColor="@color/Indigo"/>
+            android:textColor="@color/light_pink"/>
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
         <View
             android:layout_height="2dip"
             android:layout_width="match_parent"
-            android:background="@color/Indigo" />
+            android:background="@color/WHITE" />
 
 
 
@@ -167,7 +167,7 @@
             android:textSize="15dp"
             android:text="@string/am5"
             android:textStyle="bold"
-            android:textColor="@color/Indigo"/>
+            android:textColor="@color/light_pink"/>
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
         <View
             android:layout_height="2dip"
             android:layout_width="match_parent"
-            android:background="@color/Indigo" />
+            android:background="@color/WHITE" />
 
     </LinearLayout>
 

@@ -1,8 +1,12 @@
 package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +28,7 @@ import com.google.zxing.common.BitMatrix;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,16 +39,37 @@ public class GatePass extends AppCompatActivity {
     ImageView imageView;
     Button button;
     EditText editText;
-    String EditTextValue ;
+    String EditTextValue;
     private ProgressDialog progress;
-    public final static int QRcodeWidth = 500 ;
-    Bitmap bitmap ;
+    public final static int QRcodeWidth = 500;
+    Bitmap bitmap;
     private DatabaseReference rootRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gate_pass);
 
+       /* try
+
+        {
+            try {
+                out = new FileOutputStream(String.valueOf(editText));
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
+        }// PNG is a lossless format, the compression factor (100) is ignored
+        finally{
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+*/
         imageView = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
         button = findViewById(R.id.button);
@@ -53,9 +79,23 @@ public class GatePass extends AppCompatActivity {
         progress.setMessage("Please wait while checking the ID");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
 
-        try {
-            Picasso.with(getApplicationContext()).load(Environment.getExternalStorageDirectory()+ "/Android/data/"+ getApplicationContext().getPackageName()+"/Files/MI_QRCode.jpg").into(imageView);
+        /*try {
+            File storageDir = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );
+            File myDir = new File(storageDir + "/saved_images/Qrcode.jpg");
+            System.out.println("Read path:"+ storageDir.toString() );
+            Picasso.with(getApplicationContext()).load(myDir).into(imageView);
+
         }catch (Exception e) {
+
+        }*/
+
+        try {
+            File filePath = GatePass.this.getFileStreamPath("qrcode.png");
+            FileInputStream fi = new FileInputStream(filePath);
+            Bitmap thumbnail = BitmapFactory.decodeStream(fi);
+            imageView.setImageBitmap(thumbnail);
+        } catch (Exception ex) {
+            System.out.println(ex);
 
         }
 
@@ -66,7 +106,7 @@ public class GatePass extends AppCompatActivity {
                 progress.show();
                 EditTextValue = editText.getText().toString().toUpperCase();
 
-                rootRef= FirebaseDatabase.getInstance().getReference();
+                rootRef = FirebaseDatabase.getInstance().getReference();
 
                 rootRef.child("collegeID").child(EditTextValue).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -82,7 +122,7 @@ public class GatePass extends AppCompatActivity {
                                 }
                             } else {
 
-                                Toast.makeText(GatePass.this,"Please Enter a valid College ID", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(GatePass.this, "Please Enter a valid College ID", Toast.LENGTH_SHORT).show();
                                 progress.dismiss();
                                 return;
                             }
@@ -100,15 +140,16 @@ public class GatePass extends AppCompatActivity {
         });
     }
 
-    public void onSucess()
-    {
+    FileOutputStream out = null;
+
+    public void onSucess() {
         try {
             bitmap = TextToImageEncode(EditTextValue);
 
             progress.dismiss();
             imageView.setImageBitmap(bitmap);
             editText.setText("");
-            storeImage(bitmap);
+            SaveImage(bitmap);
 
         } catch (WriterException e) {
             e.printStackTrace();
@@ -116,7 +157,6 @@ public class GatePass extends AppCompatActivity {
     }
 
     Bitmap TextToImageEncode(String Value) throws WriterException {
-
         BitMatrix bitMatrix;
         try {
             bitMatrix = new MultiFormatWriter().encode(
@@ -141,7 +181,7 @@ public class GatePass extends AppCompatActivity {
             for (int x = 0; x < bitMatrixWidth; x++) {
 
                 pixels[offset + x] = bitMatrix.get(x, y) ?
-                        getResources().getColor(R.color.BLACK):getResources().getColor(R.color.WHITE);
+                        getResources().getColor(R.color.black_color) : getResources().getColor(R.color.WHITE);
             }
         }
         Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
@@ -150,49 +190,16 @@ public class GatePass extends AppCompatActivity {
         return bitmap;
     }
 
-    private void storeImage(Bitmap image) {
-        File pictureFile = getOutputMediaFile();
-        if (pictureFile == null) {
-            Toast.makeText(GatePass.this,"Check Storage permissions", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    private void SaveImage(Bitmap finalBitmap) {
+
+
         try {
-            FileOutputStream fos = new FileOutputStream(pictureFile);
-            image.compress(Bitmap.CompressFormat.PNG, 90, fos);
+            FileOutputStream fos = GatePass.this.openFileOutput("qrcode.png", Context.MODE_PRIVATE);
+            finalBitmap.compress(Bitmap.CompressFormat.PNG, 80, fos);
+            System.out.println("Bitmap write success");
             fos.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error damn: "+e);
-            Toast.makeText(GatePass.this,"FileNotFound Exception", Toast.LENGTH_SHORT).show();
-            return;
-        } catch (IOException e) {
-            Toast.makeText(GatePass.this,"IO Exception", Toast.LENGTH_SHORT).show();
-            return;
+        } catch (Exception e) {
+            Log.e("saveToInternalStorage()", e.getMessage());
         }
-    }
-
-    private  File getOutputMediaFile(){
-// To be safe, you should check that the SDCard is mounted
-// using Environment.getExternalStorageState() before doing this.
-        File mediaStorageDir = new
-                File(Environment.getExternalStorageDirectory()
-                + "/Android/data/"
-                + getApplicationContext().getPackageName()
-                + "/Files");
-
-// This location works best if you want the created images to be shared
-// between applications and persist after your app has been uninstalled.
-
-// Create the storage directory if it does not exist
-        if (! mediaStorageDir.exists()){
-            if (! mediaStorageDir.mkdirs()){
-                return null;
-            }
-        }
-// Create a media file name
-        //String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date());
-        File mediaFile;
-        String mImageName="MI_QRCode.jpg";
-        mediaFile = new File(mediaStorageDir.getPath() + File.separator + mImageName);
-        return mediaFile;
     }
 }

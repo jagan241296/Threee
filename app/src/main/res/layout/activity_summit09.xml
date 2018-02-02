@@ -28,30 +28,40 @@
         android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:id="@+id/rr"
+            android:layout_height="170dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true" />
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/img2"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/image"
-        android:layout_marginEnd="17dp" />
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_below="@+id/rr"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="italic"
+            android:text="Loading Images....."/>
 
 
 
 
     <ScrollView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/image">
+        android:layout_below="@+id/rr">
 
         <RelativeLayout
             android:layout_width="match_parent"

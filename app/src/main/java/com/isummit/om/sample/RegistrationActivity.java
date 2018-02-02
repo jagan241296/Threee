@@ -71,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (mobile_value.length() < 10) {
+                if (mobile_value.length() < 10 || mobile_value.length() > 10) {
                     Toast.makeText(getApplicationContext(), "Enter Valid Mobile number", Toast.LENGTH_SHORT).show();
                     return;
                 }

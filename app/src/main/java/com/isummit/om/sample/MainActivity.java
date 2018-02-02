@@ -36,17 +36,9 @@ public class MainActivity extends AppCompatActivity
     // Root Database Name for Firebase Database.
     public static final String Database_Path = "Images";
 
-    // Creating URI.
-    Uri FilePathUri;
-
     // Creating StorageReference and DatabaseReference object.
     StorageReference storageReference;
     DatabaseReference databaseReference;
-
-    // Image request code for onActivityResult() .
-    int Image_Request_Code = 7;
-
-    ProgressDialog progressDialog;
 
     private ViewPager viewPager;
     private PagerAdapter adapter;
@@ -61,6 +53,7 @@ public class MainActivity extends AppCompatActivity
     String USERNAME_KEY ="UserName";
     String EMAIL_KEY = "email";
     String prefName = "userNamePref";
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +117,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        navigationView = findViewById(R.id.nav_view);
+
 
         DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         navigationView.setNavigationItemSelectedListener(this);
 
         View header=navigationView.getHeaderView(0);
@@ -143,7 +138,7 @@ public class MainActivity extends AppCompatActivity
         username.setText(userName);
         user_email.setText(email);
 
-        progressDialog = new ProgressDialog(MainActivity.this);
+       // progressDialog = new ProgressDialog(MainActivity.this);
 
 
     }
@@ -185,8 +180,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-
         switch (id)
         {
             case R.id.invite:
@@ -227,7 +220,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.gallery:
             {
-                Intent gallery=new Intent(MainActivity.this,Dummy.class);
+                Intent gallery=new Intent(MainActivity.this,DisplayImagesActivity.class);
                 startActivity(gallery);
                 break;
             }
@@ -276,8 +269,7 @@ public class MainActivity extends AppCompatActivity
                 System.exit(1);
             }
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -293,5 +285,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int size = navigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            navigationView.getMenu().getItem(i).setChecked(false);
+        }
+    }
 
-}
+    public void youlive(View v){
+        Intent aa=new Intent(MainActivity.this,Youtubes.class);
+        startActivity(aa);
+    }}

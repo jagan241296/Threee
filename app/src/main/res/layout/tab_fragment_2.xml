@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/black_wood_bg"
+    android:background="@drawable/royalblue_bg2"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -48,7 +48,7 @@
         android:layout_marginLeft="82dp"
         android:background="@drawable/mainpagebut2"
         android:elevation="@dimen/cardview_default_elevation"
-        android:text="About IGI"
+        android:text="About Indira"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="21sp" />

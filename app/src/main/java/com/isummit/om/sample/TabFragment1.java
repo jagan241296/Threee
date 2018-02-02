@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,13 +27,15 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TabFragment1 extends Fragment implements YouTubePlayer.OnInitializedListener {
+public class TabFragment1 extends Fragment {
     private TextView txtTimerDay, txtTimerHour, txtTimerMinute, txtTimerSecond;
     private TextView tvEvent;
     private Handler handler;
     private Runnable runnable;
     private static final int RECOVERY_REQUEST = 1;
-    private YouTubePlayerView youTubeView;
+
+    Button click;
+
 
 
 
@@ -40,48 +43,25 @@ public class TabFragment1 extends Fragment implements YouTubePlayer.OnInitialize
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.tab_fragment_1, container, false);
 
+        click=(Button)rootView.findViewById(R.id.live);
+
         txtTimerDay = (TextView) rootView.findViewById(R.id.txtTimerDay);
         txtTimerHour = (TextView) rootView.findViewById(R.id.txtTimerHour);
         txtTimerMinute = (TextView) rootView.findViewById(R.id.txtTimerMinute);
         txtTimerSecond = (TextView) rootView.findViewById(R.id.txtTimerSecond);
         tvEvent = (TextView) rootView.findViewById(R.id.tvhappyevent);
-      // youTubeView = (YouTubePlayerView) rootView.findViewById(R.id.youtube_view);
-       // youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
+
+
 
 
         countDownStart();
        return rootView;
     }
 
-    @Override
-    public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean wasRestored) {
-        if (!wasRestored) {
-            player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
-        }
-    }
 
-    @Override
-    public void onInitializationFailure(Provider provider, YouTubeInitializationResult errorReason) {
-        if (errorReason.isUserRecoverableError()) {
-           // errorReason.getErrorDialog(TabFragment1.this, RECOVERY_REQUEST).show();
-        } else {
-            String error = String.format(getString(R.string.player_error), errorReason.toString());
-           // Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        }
-    }
+    public void youlive(View v){
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RECOVERY_REQUEST) {
-            // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(Config.YOUTUBE_API_KEY, this);
-        }
     }
-
-    protected Provider getYouTubePlayerProvider() {
-        return youTubeView;
-    }
-
 
     public void countDownStart() {
         handler = new Handler();

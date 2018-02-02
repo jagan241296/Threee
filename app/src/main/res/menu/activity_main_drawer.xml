@@ -62,6 +62,10 @@
                 android:icon="@drawable/ic_exit_to_app_black_24dp"
                 android:title="Exit"
                 android:id="@+id/exit"/>
+            <item
+                android:id="@+id/your_menu_item_id_to_hide"
+                android:title=""
+                android:visible="false"/>
         </menu>
     </item>
 

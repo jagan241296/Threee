@@ -1,54 +1,45 @@
 package com.isummit.om.sample;
 
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class summit08 extends AppCompatActivity {
-    ImageView imageView,imgs,img2;
-    TextView tvs,date,name,theme,venue;
-    ImageButton imageButton;
-    LayoutInflater layoutInflater;
-    ViewGroup container;
-    private ProgressDialog progress;
+    private ImageView imageView;
+    private TextView tvs,date,name,theme,venue,tv_loading;
 
-    private FirebaseDatabase database;
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private List<String> XMEN = new ArrayList<>();
+    private List<String> XMENArray = new ArrayList<>();
     private DatabaseReference myRef;
-    private StorageReference storageReference;
-    private StorageReference st;
+    private String val,val_array[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summit08);
-        Toolbar mToolbar =  findViewById(R.id.toolbar);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
+
         mToolbar.setTitle("3I Summit 2008");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -62,30 +53,17 @@ public class summit08 extends AppCompatActivity {
         });
 
 
-        try {
-            database = FirebaseDatabase.getInstance();
-            myRef = database.getReference("first");
-            storageReference= FirebaseStorage.getInstance().getReference("2011/inaug.jpg");
-            st= FirebaseStorage.getInstance().getReference("2011/picture_1.jpg");
 
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-            myRef.keepSynced(true);
-        }catch (Exception e){
-        }
-        imageView=findViewById(R.id.image);
+        date = findViewById(R.id.date);
+        venue = findViewById(R.id.venue);
+        theme = findViewById(R.id.theme);
+        tvs = findViewById(R.id.TextViews);
 
-        date=findViewById(R.id.date);
-       venue=findViewById(R.id.venue);
-        theme=findViewById(R.id.theme);
-        tvs=findViewById(R.id.TextViews);
-        imgs=findViewById(R.id.img2);
-
-
-
+        myRef=FirebaseDatabase.getInstance().getReference("first");
         myRef.child("Speakers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String val=dataSnapshot.getValue(String.class);
+                String val = dataSnapshot.getValue(String.class);
                 tvs.setText(val);
 
             }
@@ -98,7 +76,7 @@ public class summit08 extends AppCompatActivity {
         myRef.child("Date").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String val=dataSnapshot.getValue(String.class);
+                String val = dataSnapshot.getValue(String.class);
                 date.setText(val);
             }
 
@@ -112,7 +90,7 @@ public class summit08 extends AppCompatActivity {
         myRef.child("Venue").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String val=dataSnapshot.getValue(String.class);
+                String val = dataSnapshot.getValue(String.class);
                 venue.setText(val);
             }
 
@@ -124,7 +102,7 @@ public class summit08 extends AppCompatActivity {
         myRef.child("Theme").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String val=dataSnapshot.getValue(String.class);
+                String val = dataSnapshot.getValue(String.class);
                 theme.setText(val);
             }
 
@@ -133,24 +111,59 @@ public class summit08 extends AppCompatActivity {
 
             }
         });
+        myRef.child("imgs").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                val = dataSnapshot.getValue(String.class);
+                val_array=val.split("_");
+                for(int i=0;i<val_array.length;i++)
+                {
+                    XMEN.add(val_array[i]);
+                }
 
-        Glide.with(this /* context */)
-                .using(new FirebaseImageLoader())
-                .load(storageReference)
-                .into(imageView);
+                //Remove loading text
+                tv_loading=findViewById(R.id.tv_loading);
+                tv_loading.setText("");
+                init();
+            }
 
-        Glide.with(this)
-                .using(new FirebaseImageLoader())
-                .load(st)
-                .into(imgs);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-
-
-
-
+            }
+        });
 
     }
 
+
+      private void init() {
+        for(int i=0;i<XMEN.size();i++)
+            XMENArray.add(XMEN.get(i));
+
+          mPager =  findViewById(R.id.pager);
+          mPager.setAdapter(new MyAdapter(summit08.this,XMENArray));
+
+        CircleIndicator indicator =  findViewById(R.id.indicator);
+        indicator.setViewPager(mPager);
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == XMEN.size()) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 1500, 1500);
+    }
 
 }
 

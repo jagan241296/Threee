@@ -94,12 +94,13 @@ public class Dummy extends AppCompatActivity {
                 Intent intent = new Intent();
 
                 // Setting intent type as image to select image from phone storage.
-                intent.setType("image*//*");
+                intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Please Select Image"), Image_Request_Code);
 
             }
         });
+
 
 
         // Adding click listener to Upload image button.
