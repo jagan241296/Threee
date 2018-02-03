@@ -3,6 +3,7 @@ package com.isummit.om.sample;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,22 +13,24 @@ import com.squareup.picasso.Picasso;
 
 public class GuestInfoDialogActivity extends Activity {
 
-    private TextView tv_gname, tv_desig, tv_profile, tv_company;
+    private TextView tv_gname, tv_desig, tv_profile, tv_company, txtview;
     private Button bt_status;
-    private ImageView img2;
+    private ImageView img2,imgviews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_guest_info_dialog);
+        setContentView(R.layout.layout_guest_profile_dialog);
 
         tv_gname=findViewById(R.id.tv_gname);
         tv_desig=findViewById(R.id.tv_desig);
         tv_company=findViewById(R.id.tv_company);
         tv_profile=findViewById(R.id.tv_profile);
-        bt_status=findViewById(R.id.bt_status);
+        imgviews=findViewById(R.id.imgviews);
+        txtview=findViewById(R.id.txtview);
         img2=findViewById(R.id.imageView2);
+        bt_status=findViewById(R.id.btnOk);
 
         //Get record from the Bundle in Intent
         Intent intent = getIntent();
@@ -50,8 +53,16 @@ public class GuestInfoDialogActivity extends Activity {
         tv_desig.setText(record_spilt[1]);
         tv_company.setText(record_spilt[2]);
         tv_profile.setText(record_spilt[3]);
-        bt_status.setText(record_spilt[5]);
 
+        if(record_spilt[5].equals("Checked In"))
+        {
+            Picasso.with(getApplicationContext()).load(R.drawable.ic_stat_here).into(imgviews);
+            txtview.setText("Checked IN");
+        }
 
+    }
+    public void closeDialog(View view)
+    {
+        finish();
     }
 }
