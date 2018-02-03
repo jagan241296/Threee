@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:background="@drawable/indira_logo"
+        android:src="@drawable/indira_logo"
         android:layout_margin="16dp"
         android:id="@+id/imageView2" />
 
@@ -65,12 +65,38 @@
              />
     </ScrollView>
 
-    <Button
-        android:id="@+id/bt_status"
-        android:layout_marginTop="30dp"
+    <ImageView
+        android:id="@+id/imgviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tv_company"
+        android:maxHeight="40dp"
         android:layout_below="@+id/scroll"
-        android:text="Guest Arrival Status" />
+        android:src="@drawable/ic_stat_wait"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/txtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scroll"
+        android:text="Not Checked IN"
+        android:textSize="20dp"
+        android:layout_toRightOf="@id/imgviews"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="8dp"/>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:minWidth="90dp"
+        android:text="OK"
+        android:layout_below="@id/txtview"
+        android:layout_toRightOf="@id/txtview"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="closeDialog"
+        />
 </RelativeLayout>
