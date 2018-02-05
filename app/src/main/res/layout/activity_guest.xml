@@ -36,7 +36,7 @@
     android:background="@drawable/black_wood_bg">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/hr"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
@@ -44,8 +44,7 @@
         app:cardElevation="5dp"
         app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="8dp"
-        android:onClick="onCardClickHR">
+        app:cardCornerRadius="8dp">
 
         <TextView
             android:id="@+id/textView_1"
@@ -77,16 +76,15 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/start_up"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_alignStart="@+id/cardView"
-        android:layout_below="@+id/cardView"
+        android:layout_alignStart="@+id/hr"
+        android:layout_below="@+id/hr"
         app:cardElevation="5dp"
         app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="8dp"
-        android:onClick="onCardClickCEO">
+        app:cardCornerRadius="8dp">
 
         <TextView
             android:id="@+id/textView_2"
@@ -119,16 +117,15 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/alumni"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_alignStart="@+id/cardView2"
-        android:layout_below="@+id/cardView2"
+        android:layout_alignStart="@+id/start_up"
+        android:layout_below="@+id/start_up"
         app:cardElevation="5dp"
         app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="8dp"
-        android:onClick="onCardClickAlumni">
+        app:cardCornerRadius="8dp">
 
         <TextView
             android:id="@+id/textView_3"
@@ -160,16 +157,15 @@
     </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/cardView4"
+            android:id="@+id/chief"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_alignStart="@+id/cardView3"
-            android:layout_below="@+id/cardView3"
+            android:layout_alignStart="@+id/alumni"
+            android:layout_below="@+id/alumni"
             app:cardElevation="5dp"
             app:cardBackgroundColor="@color/light_black"
             android:layout_marginTop="20dp"
-            app:cardCornerRadius="8dp"
-            android:onClick="onCardClickChief">
+            app:cardCornerRadius="8dp">
 
             <TextView
                 android:id="@+id/textView_4"
@@ -202,16 +198,15 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView5"
+        android:id="@+id/igi_guests"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:cardCornerRadius="8dp"
         app:cardBackgroundColor="@color/light_black"
-        android:layout_alignStart="@+id/cardView2"
-        android:layout_below="@+id/cardView4"
+        android:layout_alignStart="@+id/chief"
+        android:layout_below="@+id/chief"
         app:cardElevation="5dp"
-        android:layout_marginTop="20dp"
-        android:onClick="onCardClickIGI">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/textView_5"

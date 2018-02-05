@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:id="@+id/thisevent"
+        android:id="@+id/igi"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_alignEnd="@+id/textView21"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView22"
-        android:layout_below="@+id/thisevent"
+        android:layout_below="@+id/igi"
         android:padding="10dp"
         android:text="@string/aboutus"
         android:textAlignment="textStart"
@@ -40,7 +40,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/thisevents"
+        android:id="@+id/indira"
         android:layout_width="match_parent"
         android:layout_height="65dp"
 
@@ -60,7 +60,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/thisevents"
+        android:layout_below="@+id/indira"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:padding="10dp"

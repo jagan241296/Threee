@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -67,8 +69,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                    ImageUploadInfo imageUploadInfo = postSnapshot.getValue(ImageUploadInfo.class);
 
+                    ImageUploadInfo imageUploadInfo = postSnapshot.getValue(ImageUploadInfo.class);
                     list.add(imageUploadInfo);
                 }
 

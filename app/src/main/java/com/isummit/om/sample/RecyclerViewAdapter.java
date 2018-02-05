@@ -1,10 +1,14 @@
 package com.isummit.om.sample;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +52,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Glide.with(context).load(UploadInfo.getImageURL()).into(holder.imageView);
     }
 
+
+
     @Override
     public int getItemCount() {
 
@@ -58,13 +64,48 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ImageView imageView;
         public TextView imageNameTextView;
+        String data;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView);
 
-            imageNameTextView = (TextView) itemView.findViewById(R.id.ImageNameTextView);
+            imageNameTextView = itemView.findViewById(R.id.ImageNameTextView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos=getAdapterPosition();
+                    data=MainImageUploadInfoList.get(pos).getImageURL();
+                    Animation myAnim = AnimationUtils.loadAnimation(context, R.anim.bounce);
+                    itemView.startAnimation(myAnim);
+                    myAnim.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            passImageActivity(data);
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+                }
+            });
+        }
+
+        public void passImageActivity(String data)
+        {
+            Bundle args = new Bundle();
+            Intent testi=new Intent(context,GalleryImageZoom.class);
+            testi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            testi.putExtra("image",data);
+            context.startActivity(testi);
         }
     }
 }

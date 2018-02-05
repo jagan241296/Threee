@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class TabFragment1 extends Fragment {
     private Runnable runnable;
     private static final int RECOVERY_REQUEST = 1;
 
-    Button click;
+    CardView click;
 
 
 
@@ -43,13 +44,13 @@ public class TabFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.tab_fragment_1, container, false);
 
-        click=(Button)rootView.findViewById(R.id.live);
+        click=rootView.findViewById(R.id.live);
 
-        txtTimerDay = (TextView) rootView.findViewById(R.id.txtTimerDay);
-        txtTimerHour = (TextView) rootView.findViewById(R.id.txtTimerHour);
-        txtTimerMinute = (TextView) rootView.findViewById(R.id.txtTimerMinute);
-        txtTimerSecond = (TextView) rootView.findViewById(R.id.txtTimerSecond);
-        tvEvent = (TextView) rootView.findViewById(R.id.tvhappyevent);
+        txtTimerDay = rootView.findViewById(R.id.txtTimerDay);
+        txtTimerHour = rootView.findViewById(R.id.txtTimerHour);
+        txtTimerMinute = rootView.findViewById(R.id.txtTimerMinute);
+        txtTimerSecond = rootView.findViewById(R.id.txtTimerSecond);
+        tvEvent = rootView.findViewById(R.id.tvhappyevent);
 
 
 
