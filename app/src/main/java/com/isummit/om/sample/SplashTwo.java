@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class SplashTwo extends AppCompatActivity {
 
-    private ImageView imageViewLogo,imageViewWelcome;
+    private ImageView imageViewLogo,imageViewWelcome,imageviewpic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,12 +19,15 @@ public class SplashTwo extends AppCompatActivity {
         //local api's
         imageViewLogo=findViewById(R.id.three);
         imageViewWelcome=findViewById(R.id.welcome);
+        imageviewpic=findViewById(R.id.welcome_gesture);
 
         //Adding animation to images
         Animation fromtop= AnimationUtils.loadAnimation(this,R.anim.slidefromtop);
         Animation frombottom=AnimationUtils.loadAnimation(this,R.anim.slidefrombottom);
+        Animation fade=AnimationUtils.loadAnimation(this,R.anim.fade);
         imageViewLogo.startAnimation(fromtop);
         imageViewWelcome.startAnimation(frombottom);
+        imageviewpic.startAnimation(fade);
         new Thread(new Runnable() {
             @Override
             public void run() {

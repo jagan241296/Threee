@@ -4,33 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashTwo"
-    android:background="@drawable/splash_bg">
+    android:background="@drawable/splash_bg"
+    tools:context=".SplashTwo">
 
     <ImageView
         android:id="@+id/three"
         android:layout_width="269dp"
         android:layout_height="256dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/three_i_icon" android:contentDescription="TODO"/>
+        app:srcCompat="@drawable/three_i_icon" />
 
     <ImageView
         android:id="@+id/welcome"
         android:layout_width="293dp"
         android:layout_height="136dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/welcome_3d" />
+
+    <ImageView
+        android:id="@+id/welcome_gesture"
+        android:layout_width="115dp"
+        android:layout_height="111dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/three_i"
+        app:layout_constraintBottom_toTopOf="@+id/three"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/welcome_blue" />
+        app:layout_constraintVertical_bias="0.284"
+        app:srcCompat="@drawable/welcome_gesture" />
 </android.support.constraint.ConstraintLayout>
