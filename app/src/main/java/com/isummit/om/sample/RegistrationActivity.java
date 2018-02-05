@@ -52,6 +52,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                progressBar.setVisibility(View.VISIBLE);
+
 
                 fullnam=fullname.getText().toString();
                 email_value=email.getText().toString();

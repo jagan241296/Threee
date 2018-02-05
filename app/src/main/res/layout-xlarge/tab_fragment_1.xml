@@ -177,18 +177,6 @@
             android:textSize="35sp" />
 
         <TextView
-            android:id="@+id/textView24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="203dp"
-            android:fontFamily="@font/yesteryear"
-            android:text="Presents"
-
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="28sp" />
-
-        <TextView
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,5 +214,5 @@
         android:background="@drawable/circular"
         android:elevation="4dp"
         android:src="@mipmap/ic_launcher_new" />
-
+    
 </RelativeLayout>

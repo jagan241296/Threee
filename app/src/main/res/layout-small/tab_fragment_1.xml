@@ -226,5 +226,5 @@
         android:background="@drawable/circular"
         android:elevation="4dp"
         android:src="@mipmap/ic_launcher_new" />
-
+    
 </RelativeLayout>
