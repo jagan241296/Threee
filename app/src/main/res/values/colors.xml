@@ -33,7 +33,7 @@
     <color name="backdrop">#EDC66B</color>
     <color name="dark_brown">#3E2723</color>
     <color name="mahroon">#6C3227</color>
-    <color name="dark_green">#1B5E20</color>
+    <color name="dark_green">#f28470</color>
     <color name="royal_bue">#4169e1</color>
     <color name="light_black">#424242</color>
     <color name="light_blue">#64B5F6</color>
@@ -175,5 +175,6 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+    <color name="cardtint">#2a8a3fb6</color>
 
 </resources>
