@@ -56,7 +56,7 @@ public class GuestInfoDialogActivity extends Activity {
 
         if(record_spilt[5].equals("Checked In"))
         {
-            Picasso.with(getApplicationContext()).load(R.drawable.double_click).into(imgviews);
+            Picasso.with(getApplicationContext()).load(R.drawable.double_tick).into(imgviews);
             txtview.setText("Checked IN");
         }
 
