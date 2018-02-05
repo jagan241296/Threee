@@ -21,7 +21,7 @@
         android:layout_marginTop="45dp"
         android:background="@drawable/main_page_but"
         android:elevation="@dimen/cardview_default_elevation"
-        android:text="About IGI"
+        android:text="About Indira Group of Institues(IGI)"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="21sp"
@@ -49,10 +49,10 @@
         android:layout_marginLeft="82dp"
         android:background="@drawable/mainpagebut2"
         android:elevation="@dimen/cardview_default_elevation"
-        android:text="About Indira"
+        android:text="About Indira College of Engineering and Management (ICEM)"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:textSize="21sp"
+        android:textSize="16sp"
         android:backgroundTint="@color/Purple"/>
 
     <TextView

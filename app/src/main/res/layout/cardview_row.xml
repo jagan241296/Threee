@@ -10,6 +10,7 @@
     android:orientation="horizontal"
     card_view:cardCornerRadius="5dp"
     card_view:cardUseCompatPadding="true"
+
     app:cardBackgroundColor="@color/light_black"
     android:onClick="onBClick">
 
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp"
+
         android:background="?android:selectableItemBackground">
 
 
@@ -24,14 +26,15 @@
             android:id="@+id/info_text"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:minHeight="80dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="34dp"
+            android:elevation="20dp"
             android:gravity="center"
+            android:minHeight="80dp"
             android:text="Hello"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="26sp" />
 
         <ImageView
             android:id="@+id/imageView"

@@ -87,16 +87,20 @@ public class Prev extends AppCompatActivity {
                 }
 
                 if(position==6){
-
+                    Intent six=new Intent(Prev.this,summit14.class);
+                    startActivity(six);
                 }
                 if(position==7){
-
+                    Intent seven=new Intent(Prev.this,summit15.class);
+                    startActivity(seven);
                 }
                 if(position==8){
-
+                    Intent eight=new Intent(Prev.this,summit16.class);
+                    startActivity(eight);
                 }
                 if(position==9){
-
+                    Intent nine=new Intent(Prev.this,summit17.class);
+                    startActivity(nine);
                 }
                 else{
                 }

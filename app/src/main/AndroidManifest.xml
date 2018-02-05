@@ -55,11 +55,16 @@
         <activity android:name=".GatePass" />
         <activity android:name=".Dummy" />
         <activity android:name=".Youtubes" />
-        <activity android:name=".SplashTwo"
-            android:theme="@style/SplashTheme"/>
-        <activity android:name=".Splash"
-            android:theme="@style/SplashTheme">
-        </activity>
+        <activity
+            android:name=".SplashTwo"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".Splash"
+            android:theme="@style/SplashTheme" />
+        <activity android:name=".summit14" />
+        <activity android:name=".summit15" />
+        <activity android:name=".summit16" />
+        <activity android:name=".summit17"></activity>
     </application>
 
 </manifest>
