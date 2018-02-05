@@ -90,9 +90,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.home_icon));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_about_us));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_event_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_home_white));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_about_us_white));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_event_white_24dp));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
          viewPager = (ViewPager) findViewById(R.id.pager);

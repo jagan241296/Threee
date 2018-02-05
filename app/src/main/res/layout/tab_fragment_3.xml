@@ -11,16 +11,19 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:padding="10dp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardAlumni"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:layout_margin="10dp"
         app:cardElevation="5dp"
+        android:layout_margin="10dp"
+        android:foregroundGravity="center"
         app:cardCornerRadius="5dp"
-        app:cardBackgroundColor="@color/light_black">
+        app:cardBackgroundColor="@color/RoyalBlue">
 
 
         <TextView
@@ -28,9 +31,10 @@
             android:layout_height="wrap_content"
             android:text="Alumni Agenda"
             android:textSize="25dp"
+            android:layout_gravity="center"
             android:textColor="@color/WHITE"
             android:textAlignment="center"
-            android:layout_margin="60dp"/>
+            android:layout_margin="20dp"/>
 
     </android.support.v7.widget.CardView>
 
@@ -38,22 +42,24 @@
         android:id="@+id/cardSummit"
         android:layout_width="match_parent"
         android:layout_height="160dp"
+        android:layout_alignEnd="@+id/cardAlumni"
         android:layout_alignStart="@+id/cardAlumni"
         android:layout_below="@+id/cardAlumni"
-        android:layout_margin="10dp"
+        android:foregroundGravity="center"
+        app:cardBackgroundColor="@color/RoyalBlue"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/light_black">
+        app:cardElevation="5dp">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
             android:text="3i Summit Agenda"
-            android:textSize="25dp"
+            android:textAlignment="center"
             android:textColor="@color/WHITE"
-            android:textAlignment="center"/>
+            android:textSize="25dp" />
 
     </android.support.v7.widget.CardView>
 

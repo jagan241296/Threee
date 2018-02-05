@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.isummit.om.sample"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -51,6 +51,12 @@ dependencies {
 
     //add this dependency
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
+}
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
 }
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'

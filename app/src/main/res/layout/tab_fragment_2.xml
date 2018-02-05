@@ -24,7 +24,8 @@
         android:text="About IGI"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:textSize="21sp" />
+        android:textSize="21sp"
+        android:backgroundTint="@color/Purple"/>
 
     <TextView
         android:id="@+id/textView21"
@@ -51,7 +52,8 @@
         android:text="About Indira"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:textSize="21sp" />
+        android:textSize="21sp"
+        android:backgroundTint="@color/Purple"/>
 
     <TextView
         android:id="@+id/textView22"

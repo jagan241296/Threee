@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ import java.util.Date;
 
 public class RegistrationActivity extends AppCompatActivity {
     private EditText email, mobile,fullname;
-    private Button register;
+    private CardView register;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     String USERNAME_KEY ="UserName";
@@ -104,7 +105,11 @@ public class RegistrationActivity extends AppCompatActivity {
         prefEditor.commit();
         progressBar.setVisibility(View.GONE);
 
-        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, SplashTwo.class);
+        //finish all previous activities
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        finishAffinity();
         startActivity(intent);
+        finish();
     }
 }
