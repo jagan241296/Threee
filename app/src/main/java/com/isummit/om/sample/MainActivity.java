@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity
     private ImageView profile;
     private TextView username, user_email;
     private DatabaseReference mref;
-    private FirebaseAuth mAuth;
-    private String name,email,uid;
-    private Uri photoUrl;
-    private boolean emailVerified;
     String USERNAME_KEY ="UserName";
     String EMAIL_KEY = "email";
     String prefName = "userNamePref";
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -266,6 +262,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.exit:
             {
+                DatabaseReference.goOffline();
                 System.exit(1);
             }
         }
@@ -273,18 +270,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    public String GetFileExtension(Uri uri) {
-
-        ContentResolver contentResolver = getContentResolver();
-
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-
-        // Returning the file Extension.
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -293,7 +278,6 @@ public class MainActivity extends AppCompatActivity
             navigationView.getMenu().getItem(i).setChecked(false);
         }
     }
-
     public void youlive(View v){
         Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
         v.startAnimation(myAnim);

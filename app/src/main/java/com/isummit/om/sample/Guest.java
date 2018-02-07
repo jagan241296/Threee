@@ -1,18 +1,28 @@
 package com.isummit.om.sample;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Guest extends AppCompatActivity implements View.OnClickListener{
     private CardView hr,start_up,alumni,chief,igi_guests;
+    private ArrayList<String> guest_array= new ArrayList<>();
+    private String guest_count;
+    private TextView textView, textView1, textView3, textView4, textView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +33,13 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
         alumni=findViewById(R.id.alumni);
         chief=findViewById(R.id.chief);
         igi_guests=findViewById(R.id.igi_guests);
+
+        textView=findViewById(R.id.textView);
+        textView1=findViewById(R.id.textView1);
+        textView3=findViewById(R.id.textView3);
+        textView4=findViewById(R.id.textView4);
+        textView5=findViewById(R.id.textView5);
+
         Toolbar mToolbar =  findViewById(R.id.toolbar);
         mToolbar.setTitle("Guests");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
@@ -36,6 +53,24 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
             }
         });
 
+        DatabaseReference rootRef=FirebaseDatabase.getInstance().getReference("guest_count");
+
+        rootRef.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot childSnapShot: dataSnapshot.getChildren())
+                {
+                    guest_count=childSnapShot.getValue().toString();
+                    System.out.println("Value: "+guest_count);
+                    guest_array.add(guest_count);
+                }
+                setGuest();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         hr.setOnClickListener(this);
         start_up.setOnClickListener(this);
         alumni.setOnClickListener(this);
@@ -43,6 +78,22 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
         igi_guests.setOnClickListener(this);
 
     }
+    public void setGuest()
+    {
+         /*
+        ALumni-textView3
+        Chief guests-textView4
+        HR-textView1
+        IGI-textView5
+        Start up-textView*/
+
+        textView.setText(guest_array.get(4));
+        textView1.setText(guest_array.get(2));
+        textView3.setText(guest_array.get(0));
+        textView4.setText(guest_array.get(1));
+        textView5.setText(guest_array.get(3));
+    }
+
     TextView tv_category;
     Intent guestList;
     Bundle bundle = new Bundle();
