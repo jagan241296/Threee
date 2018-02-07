@@ -59,7 +59,7 @@ public class summit15 extends AppCompatActivity {
         theme = findViewById(R.id.theme);
         tvs = findViewById(R.id.TextViews);
 
-        myRef=FirebaseDatabase.getInstance().getReference("eight");
+        myRef=FirebaseDatabase.getInstance().getReference("eighth");
         myRef.child("Speakers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
