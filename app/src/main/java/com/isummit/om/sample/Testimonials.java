@@ -98,7 +98,7 @@ public class Testimonials extends AppCompatActivity {
                         }
                         String value,format,message;
                         value = input.getText().toString().trim();
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                         format = simpleDateFormat.format(new Date());
                         message=userName+"_"+value+"_"+format;
                         rootRef.child(format).setValue(message);
