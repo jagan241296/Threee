@@ -46,7 +46,7 @@ public class GuestInfoDialogActivity extends Activity {
         2 - Company Name
         3 - Company's Profile/HR Profile
         4 - Photo URL
-        5 - Arrival Status        */
+        5 - Arrival Status --Not Checked       */
 
         Picasso.with(getApplicationContext()).load(record_spilt[4]).into(img2);
         tv_gname.setText(record_spilt[0]);

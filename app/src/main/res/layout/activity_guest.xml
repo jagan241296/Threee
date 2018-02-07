@@ -47,7 +47,7 @@
         app:cardCornerRadius="8dp">
 
         <TextView
-            android:id="@+id/textView_1"
+            android:id="@+id/textView_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -87,7 +87,7 @@
         app:cardCornerRadius="8dp">
 
         <TextView
-            android:id="@+id/textView_2"
+            android:id="@+id/textView_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -103,7 +103,7 @@
             android:background="@color/black_color"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignStart="@+id/cardView"
