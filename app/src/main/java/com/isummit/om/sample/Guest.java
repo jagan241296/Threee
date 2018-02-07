@@ -23,7 +23,7 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
         alumni=findViewById(R.id.alumni);
         chief=findViewById(R.id.chief);
         igi_guests=findViewById(R.id.igi_guests);
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar mToolbar =  findViewById(R.id.toolbar);
         mToolbar.setTitle("Guests");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         category=tv_category.getText().toString();
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
-                        Toast.makeText(Guest.this,"category clicked: "+category,Toast.LENGTH_SHORT).show();
                         startActivity(guestList);
                     }
 
@@ -91,10 +90,9 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                     public void onAnimationEnd(Animation animation) {
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_2);
-                        category=tv_category.getText().toString();
+                        category="Start-Up CEO's";
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
-                        Toast.makeText(Guest.this,"category clicked: "+category,Toast.LENGTH_SHORT).show();
                         startActivity(guestList);
                     }
 
@@ -121,7 +119,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         category=tv_category.getText().toString();
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
-                        Toast.makeText(Guest.this,"category clicked: "+category,Toast.LENGTH_SHORT).show();
                         startActivity(guestList);
                     }
 
@@ -148,7 +145,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         category=tv_category.getText().toString();
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
-                        Toast.makeText(Guest.this,"category clicked: "+category,Toast.LENGTH_SHORT).show();
                         startActivity(guestList);
                     }
 
@@ -175,7 +171,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         category=tv_category.getText().toString();
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
-                        Toast.makeText(Guest.this,"category clicked: "+category,Toast.LENGTH_SHORT).show();
                         startActivity(guestList);
                     }
 

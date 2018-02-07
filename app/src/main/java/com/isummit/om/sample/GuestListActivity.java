@@ -32,8 +32,6 @@ public class GuestListActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private  String category;
     private ProgressDialog  progress;
-   /* private TextView tv_gname, tv_desig, tv_profile, tv_company;
-    private Button bt_status;*/
     private DatabaseReference rootRef;
     private List<String> names = new ArrayList<>();
     private List<String> names_url = new ArrayList<>();

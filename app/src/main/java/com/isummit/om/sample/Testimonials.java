@@ -37,7 +37,7 @@ public class Testimonials extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     String name="";
-    String[] split_data;
+    String[] split_data,split_data_time;
     private ProgressDialog progress;
     String USERNAME_KEY ="UserName";
     String EMAIL_KEY = "email";
@@ -98,7 +98,7 @@ public class Testimonials extends AppCompatActivity {
                         }
                         String value,format,message;
                         value = input.getText().toString().trim();
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
                         format = simpleDateFormat.format(new Date());
                         message=userName+"_"+value+"_"+format;
                         rootRef.child(format).setValue(message);
@@ -135,7 +135,8 @@ public class Testimonials extends AppCompatActivity {
                     split_data=name.split("_");
                     testimonials_username.add(split_data[0]);
                     testimonials.add(split_data[1]);
-                    testimonials_date.add(split_data[2]);
+                    split_data_time=split_data[2].split("-");
+                    testimonials_date.add(split_data_time[0]+"-"+split_data_time[1]+"-"+split_data_time[2]);
 
                 }
                 FillListView();
@@ -196,7 +197,8 @@ public class Testimonials extends AppCompatActivity {
                     split_data=name.split("_");
                     testimonials_username.add(split_data[0]);
                     testimonials.add(split_data[1]);
-                    testimonials_date.add(split_data[2]);
+                    split_data_time=split_data[2].split("-");
+                    testimonials_date.add(split_data_time[0]+"-"+split_data_time[1]+"-"+split_data_time[2]);
                 }
                 FillListView();
             }
