@@ -17,7 +17,6 @@
         android:background="@color/blaccktr">
 
         <ImageView
-
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,19 +25,17 @@
             android:foregroundGravity="center"
             android:padding="10dp"
             android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/ImageNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="JSon Image Name"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:visibility="invisible" />
-
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ImageNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Loading Image...."
+        android:textStyle="italic"
+        android:textColor="#000"
+        android:textSize="20dp"/>
 
 </android.support.v7.widget.CardView>
