@@ -36,7 +36,7 @@
     android:background="@drawable/black_wood_bg">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/hr"
+        android:id="@+id/start_up"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
@@ -51,8 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:text="HR Awardees"
+            android:layout_marginTop="10dp"
+            android:text="Start-Up \nCEO's/Founder's/Co-Founder's"
             android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
@@ -76,11 +76,11 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/start_up"
+        android:id="@+id/hr"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_alignStart="@+id/hr"
-        android:layout_below="@+id/hr"
+        android:layout_alignStart="@+id/start_up"
+        android:layout_below="@+id/start_up"
         app:cardElevation="5dp"
         app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_marginTop="20dp"
-            android:text="Start-Up CEO's"
+            android:text="HR Awardees"
             android:textColor="@color/WHITE"
             android:textSize="25dp"/>
 
@@ -120,8 +120,8 @@
         android:id="@+id/alumni"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_alignStart="@+id/start_up"
-        android:layout_below="@+id/start_up"
+        android:layout_alignStart="@+id/hr"
+        android:layout_below="@+id/hr"
         app:cardElevation="5dp"
         app:cardBackgroundColor="@color/light_black"
         android:layout_marginTop="20dp"
