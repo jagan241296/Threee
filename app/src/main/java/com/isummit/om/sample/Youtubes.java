@@ -22,6 +22,7 @@ public class Youtubes extends AppCompatActivity implements YouTubePlayer.OnIniti
     private YouTubePlayer mPlayer;
     private String YouTubeKey = "";
     private DatabaseReference rootRef;
+    private String Youtube_static="AIzaSyAGXHr92fQoyIRckzQ1IxYDwEMypLQMERI";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class Youtubes extends AppCompatActivity implements YouTubePlayer.OnIniti
         DatabaseReference.goOffline();
         playerFragment =(YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtube_player_fragment);
 
-        playerFragment.initialize(YouTubeKey, this);
+        playerFragment.initialize(Youtube_static, this);
     }
 
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
@@ -64,8 +65,7 @@ public class Youtubes extends AppCompatActivity implements YouTubePlayer.OnIniti
         mPlayer.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CONTROL_SYSTEM_UI);
 
         if (!wasRestored) {
-
-            mPlayer.loadVideo("lRSX5OTFHZM");
+            mPlayer.loadVideo(YouTubeKey);
         }
         else
         {
