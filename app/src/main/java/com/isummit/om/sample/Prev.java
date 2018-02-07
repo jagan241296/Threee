@@ -30,7 +30,6 @@ public class Prev extends AppCompatActivity {
             "3i Summit '17"
     };
     int[] imageid={
-            R.drawable.counter
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
