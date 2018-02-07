@@ -69,4 +69,8 @@
     <string name="player_error">Error initializing YouTube player: %s</string>
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
+
+
+    <string name="about3i">Indira College of Engineering and Management has been successfully conducting International Summits and HR Awards. We are pleased to announce that this year too, we are organizing Start-up Summit with the theme “Startup India: the Spirit of Entrepreneurship and Employability”. It is rightly said that “A business is simply an idea to make other people’s lives better”. Every new business starts with an insight. Each one of us is gifted with the power to think and change the face of tomorrow. Wherever the person’s interest lies, certainly there is a way to turn it into a thriving business.
+</string>
 </resources>
