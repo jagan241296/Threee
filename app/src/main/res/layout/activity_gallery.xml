@@ -13,6 +13,6 @@
         android:layout_alignParentTop="true">
 
 
-    </android.support.v7.widget.RecyclerView>y
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

@@ -34,7 +34,7 @@
         android:nestedScrollingEnabled="true"
         android:numColumns="2"
         android:stretchMode="columnWidth"
-        >
+        android:background="@drawable/background7">
 
     </GridView>
 

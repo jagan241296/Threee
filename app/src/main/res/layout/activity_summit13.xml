@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.isummit.om.sample.summit13">
+    tools:context="com.isummit.om.sample.summit13"
+    android:background="@drawable/background_black">
 
 
     <android.support.design.widget.AppBarLayout
@@ -49,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:textColor="@color/GREY_7"
             android:textStyle="italic"
             android:text="Loading Images....."/>
 
@@ -72,7 +74,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/WHITE"
                 android:layout_marginTop="17dp"
                 android:text="Date of Event"
                 android:textAlignment="textStart"
@@ -87,7 +89,7 @@
                 android:layout_marginTop="18dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp"
                 android:layout_below="@+id/textView12"
                 android:layout_alignParentStart="true" />
@@ -105,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/date"
                 android:layout_centerHorizontal="true"
+                android:textColor="@color/WHITE"
                 android:layout_marginTop="30dp"
                 android:text="Theme of 3i summit 2013"
                 android:textAlignment="textStart"
@@ -117,7 +120,7 @@
                 android:layout_marginTop="14dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp"
                 android:layout_below="@+id/textView14"
                 android:layout_alignParentStart="true" />
@@ -134,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/theme"
                 android:layout_marginTop="24dp"
+                android:textColor="@color/WHITE"
                 android:text="Venue"
                 android:textAlignment="textStart"
                 android:textSize="16sp" />
@@ -145,7 +149,7 @@
                 android:layout_marginTop="14dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp"
                 android:layout_below="@+id/textView16"
                 android:layout_alignParentStart="true" />
@@ -161,6 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/venue"
+                android:textColor="@color/WHITE"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="35dp"
                 android:text="Speakers"
@@ -169,7 +174,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_below="@+id/text18"
+                android:layout_below="@+id/textView18"
                 android:background="@color/cardview_dark_background"
                 android:id="@+id/view" />
 
@@ -184,7 +189,7 @@
                 android:paddingBottom="50dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp" />
 
 

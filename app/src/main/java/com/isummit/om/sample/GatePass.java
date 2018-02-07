@@ -9,8 +9,11 @@ import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,7 +40,7 @@ import java.util.Date;
 
 public class GatePass extends AppCompatActivity {
     ImageView imageView;
-    Button button;
+    CardView button;
     EditText editText;
     String EditTextValue;
     private ProgressDialog progress;
@@ -103,39 +106,63 @@ public class GatePass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                progress.show();
+                Animation myAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
+                button.startAnimation(myAnim);
                 EditTextValue = editText.getText().toString().toUpperCase();
-
-                rootRef = FirebaseDatabase.getInstance().getReference();
-
-                rootRef.child("collegeID").child(EditTextValue).addValueEventListener(new ValueEventListener() {
+                if(EditTextValue.equals(""))
+                {
+                    Toast.makeText(GatePass.this, "Please Enter a valid College ID", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                myAnim.setAnimationListener(new Animation.AnimationListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        try {
-                            if (dataSnapshot.getValue() != null) {
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation)
+                    {
+                        progress.show();
+
+
+                        rootRef = FirebaseDatabase.getInstance().getReference();
+                        rootRef.child("collegeID").child(EditTextValue).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
                                 try {
+                                    if (dataSnapshot.getValue() != null) {
+                                        try {
 
-                                    onSucess();
+                                            onSucess();
 
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    } else {
+
+                                        Toast.makeText(GatePass.this, "Please Enter a valid College ID", Toast.LENGTH_SHORT).show();
+                                        progress.dismiss();
+                                        return;
+                                    }
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                            } else {
-
-                                Toast.makeText(GatePass.this, "Please Enter a valid College ID", Toast.LENGTH_SHORT).show();
-                                progress.dismiss();
-                                return;
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onAnimationRepeat(Animation animation) {
 
                     }
                 });
+
+
             }
         });
     }

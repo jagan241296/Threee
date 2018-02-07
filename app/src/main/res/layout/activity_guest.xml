@@ -33,7 +33,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/black_wood_bg">
+    android:background="@drawable/background7">
 
     <android.support.v7.widget.CardView
         android:id="@+id/start_up"
@@ -42,7 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/light_black"
+        app:cardBackgroundColor="@color/Purple"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -83,7 +83,7 @@
         android:layout_alignStart="@+id/start_up"
         android:layout_below="@+id/start_up"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/light_black"
+        app:cardBackgroundColor="@color/Purple"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -125,7 +125,7 @@
         android:layout_alignStart="@+id/hr"
         android:layout_below="@+id/hr"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/light_black"
+        app:cardBackgroundColor="@color/Purple"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -166,7 +166,7 @@
             android:layout_alignStart="@+id/alumni"
             android:layout_below="@+id/alumni"
             app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/light_black"
+            app:cardBackgroundColor="@color/Purple"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="8dp">
 
@@ -206,7 +206,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/light_black"
+        app:cardBackgroundColor="@color/Purple"
         android:layout_alignStart="@+id/chief"
         android:layout_below="@+id/chief"
         app:cardElevation="5dp"

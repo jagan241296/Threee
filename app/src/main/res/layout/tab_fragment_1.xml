@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/royalblue_bg2"
+    android:background="@drawable/background7"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="25dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/royalblue_bg2"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
@@ -50,7 +49,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/counter"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -61,7 +59,7 @@
                         android:layout_weight="3"
                         android:gravity="center"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="#74fcfcfc"
+                        android:textColor="@color/WHITE"
                         android:textSize="35dp"
                         android:textStyle="bold" />
 
@@ -72,7 +70,7 @@
                         android:gravity="center_horizontal"
                         android:text="Days"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#fff"
+                        android:textColor="@color/GREY_5"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -80,7 +78,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/counter"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -92,7 +89,7 @@
                         android:foregroundGravity="center"
                         android:gravity="center"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="#74fcfcfc"
+                        android:textColor="@color/WHITE"
                         android:textSize="35dp"
                         android:textStyle="bold" />
 
@@ -103,7 +100,7 @@
                         android:gravity="center_horizontal"
                         android:text="Hours"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#fff"
+                        android:textColor="@color/GREY_5"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -111,7 +108,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/counter"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -122,7 +118,7 @@
                         android:layout_weight="3"
                         android:gravity="center"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="#74fcfcfc"
+                        android:textColor="@color/WHITE"
                         android:textSize="35dp"
                         android:textStyle="bold" />
 
@@ -133,7 +129,7 @@
                         android:gravity="center_horizontal"
                         android:text="Minutes"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#fff"
+                        android:textColor="@color/GREY_5"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -141,7 +137,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/counter"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -152,7 +147,7 @@
                         android:layout_weight="3"
                         android:gravity="center"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="#74fcfcfc"
+                        android:textColor="@color/WHITE"
                         android:textSize="35dp"
                         android:textStyle="bold" />
 
@@ -163,7 +158,7 @@
                         android:gravity="center_horizontal"
                         android:text="Seconds"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#fff"
+                        android:textColor="@color/GREY_5"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -180,7 +175,7 @@
                 android:gravity="center"
                 android:text="3 I Summit"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@color/DarkMagenta"
                 android:textSize="50sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -197,7 +192,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/yesteryear"
                 android:text="Presents"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@android:color/white"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +209,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="right"
                 android:onClick="youlive"
-                app:cardBackgroundColor="@color/RoyalBlue"
+                app:cardBackgroundColor="@color/Purple"
                 app:cardCornerRadius="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -269,7 +264,7 @@
                 android:fontFamily="@font/spirax"
                 android:text="@string/icem"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/WHITE"
                 android:textSize="35sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

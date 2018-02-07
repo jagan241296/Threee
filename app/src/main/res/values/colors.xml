@@ -131,7 +131,7 @@
     <color name="SkyBlue">#87CEEB</color>
     <color name="Gray">#808080</color>
     <color name="Olive">#808000</color>
-    <color name="Purple">#800080</color>
+    <color name="Purple">#9d800080</color>
     <color name="Maroon">#800000</color>
     <color name="Aquamarine">#7FFFD4</color>
     <color name="Chartreuse">#7FFF00</color>
@@ -176,5 +176,6 @@
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
     <color name="cardtint">#2a8a3fb6</color>
+    <color name="blaccktr">#84000000</color>
 
 </resources>
