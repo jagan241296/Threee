@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class TabFragment2 extends Fragment implements View.OnClickListener{
-    Button igi,indira;
+    Button igi,indira,icem;
 
 
     @Override
@@ -24,9 +24,11 @@ public class TabFragment2 extends Fragment implements View.OnClickListener{
         View view= inflater.inflate(R.layout.tab_fragment_2, container, false);
         igi=view.findViewById(R.id.igi);
         indira=view.findViewById(R.id.indira);
+        icem=view.findViewById(R.id.icem);
 
         igi.setOnClickListener(this);
         indira.setOnClickListener(this);
+        icem.setOnClickListener(this);
         return view;
     }
 
@@ -44,6 +46,11 @@ public class TabFragment2 extends Fragment implements View.OnClickListener{
             {
                 Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
                 indira.startAnimation(myAnim);
+            }
+            case R.id.icem:
+            {
+                Animation myAnim = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                icem.startAnimation(myAnim);
             }
         }
     }

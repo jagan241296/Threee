@@ -89,7 +89,7 @@ public class TabFragment1 extends Fragment {
                                 + String.format("%02d", seconds));
                     } else {
                         tvEvent.setVisibility(View.VISIBLE);
-                        tvEvent.setText("The event started!");
+                        tvEvent.setText("The event started!Click on Go Live");
                         textViewGone();
                     }
                 } catch (Exception e) {
@@ -101,7 +101,7 @@ public class TabFragment1 extends Fragment {
     }
 
     public void textViewGone() {
-        Toast.makeText(getContext(),"gjf",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"Click on Go Live",Toast.LENGTH_SHORT).show();
     }
 
 

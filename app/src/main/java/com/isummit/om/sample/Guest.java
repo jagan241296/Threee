@@ -1,6 +1,9 @@
 package com.isummit.om.sample;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -114,6 +118,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_1);
                         category=tv_category.getText().toString();
@@ -139,6 +149,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_2);
                         category="Start-Up CEO's";
@@ -165,6 +181,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_3);
                         category=tv_category.getText().toString();
@@ -191,6 +213,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_4);
                         category=tv_category.getText().toString();
@@ -217,6 +245,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_5);
                         category=tv_category.getText().toString();
@@ -232,5 +266,12 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                 });
             }
         }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

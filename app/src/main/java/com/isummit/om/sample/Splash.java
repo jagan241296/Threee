@@ -40,17 +40,33 @@ public class Splash extends AppCompatActivity {
 
         //Setting OnClickListener for sign up button
         imageViewRegister.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Splash.this,RegistrationActivity.class);
-                Pair[] pairs=new Pair[1];
-                pairs[0]=new Pair<View,String>(imageViewLogo,"imageTransition");
-                ActivityOptions activityOptions=ActivityOptions.makeSceneTransitionAnimation(Splash.this, pairs);
-                startActivity(intent,activityOptions.toBundle());
+
+                Animation myAnim = AnimationUtils.loadAnimation(Splash.this, R.anim.bounce);
+                imageViewRegister.startAnimation(myAnim);
+                myAnim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Intent intent=new Intent(Splash.this,RegistrationActivity.class);
+                        Pair[] pairs=new Pair[1];
+                        pairs[0]=new Pair<View,String>(imageViewLogo,"imageTransition");
+                        ActivityOptions activityOptions=ActivityOptions.makeSceneTransitionAnimation(Splash.this, pairs);
+                        startActivity(intent,activityOptions.toBundle());
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
             }
         });
-
-
-
     }
 }

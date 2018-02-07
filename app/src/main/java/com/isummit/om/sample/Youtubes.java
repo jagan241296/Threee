@@ -3,6 +3,7 @@ package com.isummit.om.sample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -36,7 +37,8 @@ public class Youtubes extends AppCompatActivity implements YouTubePlayer.OnIniti
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(Youtubes.this, "Error Fetching Data" , Toast.LENGTH_SHORT).show();
+                return;
             }
         });
     }
@@ -73,6 +75,8 @@ public class Youtubes extends AppCompatActivity implements YouTubePlayer.OnIniti
     public void onInitializationFailure(YouTubePlayer.Provider provider,
                                         YouTubeInitializationResult errorReason) {
         mPlayer = null;
+        Toast.makeText(Youtubes.this, "Error Fetching Data" , Toast.LENGTH_SHORT).show();
+        return;
     }
 
 }

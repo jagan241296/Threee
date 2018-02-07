@@ -1,9 +1,12 @@
 package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -48,7 +51,7 @@ public class Testimonials extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar mToolbar =  findViewById(R.id.toolbar);
         mToolbar.setTitle("Testimonials");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -87,6 +90,12 @@ public class Testimonials extends AppCompatActivity {
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(Testimonials.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
                         String userName = userPrefs.getString(USERNAME_KEY, "");
                         String email = userPrefs.getString(EMAIL_KEY, "");
@@ -209,6 +218,13 @@ public class Testimonials extends AppCompatActivity {
             }
         });
 
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

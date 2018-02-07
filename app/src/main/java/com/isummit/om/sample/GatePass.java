@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -53,26 +55,6 @@ public class GatePass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gate_pass);
 
-       /* try
-
-        {
-            try {
-                out = new FileOutputStream(String.valueOf(editText));
-            } catch (FileNotFoundException e1) {
-                e1.printStackTrace();
-            }
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
-        }// PNG is a lossless format, the compression factor (100) is ignored
-        finally{
-            try {
-                if (out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-*/
         imageView = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
         button = findViewById(R.id.button);
@@ -81,16 +63,6 @@ public class GatePass extends AppCompatActivity {
         progress.setTitle("Loading");
         progress.setMessage("Please wait while checking the ID");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
-
-        /*try {
-            File storageDir = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );
-            File myDir = new File(storageDir + "/saved_images/Qrcode.jpg");
-            System.out.println("Read path:"+ storageDir.toString() );
-            Picasso.with(getApplicationContext()).load(myDir).into(imageView);
-
-        }catch (Exception e) {
-
-        }*/
 
         try {
             File filePath = GatePass.this.getFileStreamPath("qrcode.png");
@@ -122,9 +94,13 @@ public class GatePass extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animation animation)
                     {
+                        boolean netConnected=isNetworkAvailable();
+                        if(netConnected==false)
+                        {
+                            Toast.makeText(GatePass.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         progress.show();
-
-
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         rootRef.child("collegeID").child(EditTextValue).addValueEventListener(new ValueEventListener() {
                             @Override
@@ -228,5 +204,12 @@ public class GatePass extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("saveToInternalStorage()", e.getMessage());
         }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

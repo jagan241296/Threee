@@ -2,8 +2,11 @@ package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -22,6 +25,7 @@ import android.view.animation.AnimationUtils;
 import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     String USERNAME_KEY ="UserName";
     String EMAIL_KEY = "email";
     String prefName = "userNamePref";
+    private String userName;
     private NavigationView navigationView;
 
     @Override
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
-        String userName = userPrefs.getString(USERNAME_KEY, "");
+        userName = userPrefs.getString(USERNAME_KEY, "");
         String email = userPrefs.getString(EMAIL_KEY, "");
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -182,7 +187,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "hello username,invited you to try 3i Summit App Click here to download ");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Hello, "+userName+" invited you to try 3I Summit App Click on link to download: https://play.google.com/store/apps/details?id=com.isummit.om.sample");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 // Handle the camera action
@@ -197,11 +202,24 @@ public class MainActivity extends AppCompatActivity
             }
             case R.id.guests:
             {
+
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 Intent guest=new Intent(MainActivity.this,Guest.class);
                 startActivity(guest);
                 break;
             }
             case R.id.prev: {
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 Intent prev=new Intent(MainActivity.this,Prev.class);
                 startActivity(prev);
                 break;
@@ -216,6 +234,12 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.gallery:
             {
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 Intent gallery=new Intent(MainActivity.this,DisplayImagesActivity.class);
                 startActivity(gallery);
                 break;
@@ -228,6 +252,12 @@ public class MainActivity extends AppCompatActivity
             }
 
             case R.id.testi: {
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 Intent testi=new Intent(MainActivity.this,Testimonials.class);
                 startActivity(testi);
                 break;
@@ -241,6 +271,12 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.locate_us:
             {
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
                 Uri gmmIntentUri = Uri.parse("geo:0,0?q=18.706676,73.658540(3I Summit 2018)");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
@@ -252,7 +288,14 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.rate_us:
             {
+
                 try {
+                    boolean netConnected=isNetworkAvailable();
+                    if(netConnected==false)
+                    {
+                        Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                        break;
+                    }
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.isummit.om.sample")));
                 } catch (android.content.ActivityNotFoundException anfe) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.isummit.om.sample")));
@@ -279,6 +322,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
     public void youlive(View v){
+
+
         Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
         v.startAnimation(myAnim);
         myAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -289,13 +334,28 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onAnimationEnd(Animation animation)
             {
-                Intent aa=new Intent(MainActivity.this,Youtubes.class);
-                startActivity(aa);
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==true)
+                {
+                    Intent aa=new Intent(MainActivity.this,Youtubes.class);
+                    startActivity(aa);
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
             }
         });
-
-    }}
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+}
