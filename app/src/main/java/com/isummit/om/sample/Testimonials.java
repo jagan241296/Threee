@@ -176,7 +176,7 @@ public class Testimonials extends AppCompatActivity {
 
         // specify an adapter (see also next example)
 
-        mAdapter = new TestimonialCardViewAdapter(testimonials, testimonials_date,testimonials_username);
+        mAdapter = new TestimonialCardViewAdapter(this ,testimonials, testimonials_date,testimonials_username);
         mAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter( mAdapter );
     }
