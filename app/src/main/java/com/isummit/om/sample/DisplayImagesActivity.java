@@ -41,7 +41,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_images);
 
         // Assign id to RecyclerView.
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         // Setting RecyclerView size true.
         recyclerView.setHasFixedSize(true);
@@ -53,7 +53,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(DisplayImagesActivity.this);
 
         // Setting up message in Progress dialog.
-        progressDialog.setMessage("Loading Images From Firebase.");
+        progressDialog.setMessage("Loading Images...");
 
         // Showing progress dialog.
         progressDialog.show();

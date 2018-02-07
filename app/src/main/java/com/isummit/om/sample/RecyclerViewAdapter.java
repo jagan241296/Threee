@@ -46,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         ImageUploadInfo UploadInfo = MainImageUploadInfoList.get(position);
 
-        holder.imageNameTextView.setText(UploadInfo.getImageName());
+        holder.imageNameTextView.setText("");
 
         //Loading image from Glide library.
         Glide.with(context).load(UploadInfo.getImageURL()).into(holder.imageView);

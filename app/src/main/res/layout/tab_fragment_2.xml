@@ -78,7 +78,7 @@
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/textView22"
-        android:layout_marginTop="743dp"
+        android:layout_marginTop="800dp"
         android:layout_marginEnd="82dp"
         android:background="@drawable/main_page_but"
         android:backgroundTint="@color/Purple"
