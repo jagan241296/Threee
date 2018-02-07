@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -293,6 +295,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void youlive(View v){
-        Intent aa=new Intent(MainActivity.this,Youtubes.class);
-        startActivity(aa);
+        Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        v.startAnimation(myAnim);
+        myAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation)
+            {
+                Intent aa=new Intent(MainActivity.this,Youtubes.class);
+                startActivity(aa);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+
     }}

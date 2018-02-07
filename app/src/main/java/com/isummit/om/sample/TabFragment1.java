@@ -59,11 +59,6 @@ public class TabFragment1 extends Fragment {
        return rootView;
     }
 
-
-    public void youlive(View v){
-
-    }
-
     public void countDownStart() {
         handler = new Handler();
         runnable = new Runnable() {

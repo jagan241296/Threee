@@ -40,7 +40,6 @@
         >
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -50,7 +49,6 @@
             android:textStyle="bold"
             android:textColor="@color/light_pink"/>
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -60,7 +58,210 @@
             android:textColor="@color/WHITE"/>
         <!-- just draw a red line -->
         <View
-            android:layout_height="2dip"
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am2"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/d2"
+            android:textAlignment="center"
+            android:textColor="@color/WHITE" />
+
+
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am3"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/d3"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am4"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/d4"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/am5"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="@string/d5"
+            android:textColor="@color/WHITE"/>
+
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="1:30PM - 2:30PM"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Lunch"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="2:30PM - 5:30PM"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Department Meeting"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/WHITE"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Start Of 3i Night"
+            android:textColor="@color/light_pink"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d6"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="High Tea"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
             android:layout_width="match_parent"
             android:background="@color/WHITE" />
 
@@ -74,31 +275,24 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:textSize="15dp"
-            android:text="@string/am2"
+            android:text="@string/d7"
             android:textStyle="bold"
             android:textColor="@color/light_pink"/>
-
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
             android:textStyle="bold"
-            android:text="@string/d2"
-            android:textAlignment="center"
-            android:textColor="@color/WHITE" />
-
+            android:text="National Anthem"
+            android:textColor="@color/WHITE"/>
 
         <!-- just draw a red line -->
         <View
-            android:layout_height="2dip"
+            android:layout_height="2dp"
             android:layout_width="match_parent"
             android:background="@color/WHITE" />
-
-
-
-
 
         <TextView
             android:id="@+id/textView6"
@@ -107,7 +301,7 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:textSize="15dp"
-            android:text="@string/am3"
+            android:text="@string/d8"
             android:textStyle="bold"
             android:textColor="@color/light_pink"/>
         <TextView
@@ -117,17 +311,13 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:textStyle="bold"
-            android:text="@string/d3"
+            android:text="Indira Group Of Institutes A/V"
             android:textColor="@color/WHITE"/>
-        <!-- just draw a red line -->
+
         <View
-            android:layout_height="2dip"
+            android:layout_height="2dp"
             android:layout_width="match_parent"
             android:background="@color/WHITE" />
-
-
-
-
 
         <TextView
             android:id="@+id/textView8"
@@ -136,7 +326,7 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:textSize="15dp"
-            android:text="@string/am4"
+            android:text="@string/d9"
             android:textStyle="bold"
             android:textColor="@color/light_pink"/>
         <TextView
@@ -146,42 +336,261 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:textStyle="bold"
-            android:text="@string/d4"
+            android:text="Welcome Note"
             android:textColor="@color/WHITE"/>
         <!-- just draw a red line -->
         <View
-            android:layout_height="2dip"
+            android:layout_height="2dp"
             android:layout_width="match_parent"
             android:background="@color/WHITE" />
 
-
-
-
-
         <TextView
-            android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
             android:textSize="15dp"
-            android:text="@string/am5"
+            android:text="@string/d10"
             android:textStyle="bold"
             android:textColor="@color/light_pink"/>
+
         <TextView
-            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
             android:textStyle="bold"
-            android:text="@string/d5"
+            android:text="AV on 3 i"
             android:textColor="@color/WHITE"/>
         <!-- just draw a red line -->
         <View
-            android:layout_height="2dip"
+            android:layout_height="2dp"
             android:layout_width="match_parent"
             android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d11"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Welcome Dance"
+            android:textColor="@color/WHITE"/>
+
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d12"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Set 1st Awards (Start Up)"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d13"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Set 2nd Awards (Start Up)"
+            android:textColor="@color/WHITE"/>
+
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d14"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Q and A Session"
+            android:textColor="@color/WHITE"/>
+        <!-- just draw a red line -->
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d15"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Cultural Performance"
+            android:textColor="@color/WHITE"/>
+
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d16"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView313"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Set 1st HR Awards"
+            android:textColor="@color/WHITE"/>
+
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d17"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Set 2st HR Awards"
+            android:textColor="@color/WHITE"/>
+
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d18"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Alumni Awards"
+            android:textColor="@color/WHITE"/>
+
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="@color/WHITE" />
+
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="@string/d19"
+            android:textStyle="bold"
+            android:textColor="@color/light_pink"/>
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:text="Vote Of Thanks"
+            android:textColor="@color/WHITE"/>
 
     </LinearLayout>
 

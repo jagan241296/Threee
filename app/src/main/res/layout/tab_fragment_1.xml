@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/royalblue_bg2"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="25dp">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:background="@drawable/royalblue_bg2"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cd_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="500dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="55dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="3dp"
-            android:backgroundTint="@color/cardtint">
-
 
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="300dp"
-                android:orientation="horizontal">
+                android:layout_height="103dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView25">
 
                 <TextView
                     android:id="@+id/tvhappyevent"
@@ -174,92 +171,113 @@
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="240dp"
+                android:layout_height="59dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/spirax"
+                android:gravity="center"
                 android:text="3 I Summit"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/spirax"
-                android:padding="10dp"
-                android:text="@string/icem"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="35sp" />
+                android:textSize="50sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="203dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/yesteryear"
                 android:text="Presents"
                 android:textColor="@android:color/holo_red_light"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/live"
-                    android:layout_width="100dp"
-                    android:layout_height="45dp"
-                    android:layout_marginBottom="64dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:onClick="youlive"
-                    app:cardBackgroundColor="@color/RoyalBlue"
-                    app:cardCornerRadius="25dp"
-                    android:layout_gravity="bottom"
-                    android:gravity="right">
+            <android.support.v7.widget.CardView
+                android:id="@+id/live"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="right"
+                android:onClick="youlive"
+                app:cardBackgroundColor="@color/RoyalBlue"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-                    <RelativeLayout
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/live_button_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/live_button_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:gravity="start"
-                            android:text="Go Live"
-                            android:textAlignment="textStart"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-                </android.support.v7.widget.CardView>
-
-        </android.support.v7.widget.CardView>
-
-        <ImageButton
-            android:id="@+id/user_profile_photo"
-            android:layout_width="90dp"
-            android:layout_height="100dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/circular"
-            android:elevation="4dp"
-            android:src="@mipmap/ic_launcher_new" />
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="start"
+                        android:text="Go Live"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
 
-        </RelativeLayout>
+            <ImageButton
+                android:id="@+id/user_profile_photo"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/circular"
+                android:elevation="4dp"
+                android:src="@mipmap/ic_launcher_new"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="280dp"
+                android:layout_height="132dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/spirax"
+                android:text="@string/icem"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_profile_photo" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
     </ScrollView>
-
-
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
