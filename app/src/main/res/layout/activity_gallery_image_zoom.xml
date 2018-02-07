@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.isummit.om.sample.GalleryImageZoom">
+    tools:context="com.isummit.om.sample.GalleryImageZoom"
+    android:background="@drawable/background_black">
 
         <com.isummit.om.sample.TouchImageView
             android:id="@+id/imagezoom"
@@ -13,14 +14,15 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:scaleType="matrix" />
+            android:scaleType="matrix"/>
 
         <ImageView
             android:id="@+id/rotate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="38dp"
             android:src="@drawable/icons8_rotation_96" />
 
 

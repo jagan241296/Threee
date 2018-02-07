@@ -11,7 +11,7 @@
         android:layout_margin="5dp"
         android:minHeight="90dp"
         app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/light_black">
+        app:cardBackgroundColor="@color/blaccktr">
 
         <TextView
             android:id="@+id/user"

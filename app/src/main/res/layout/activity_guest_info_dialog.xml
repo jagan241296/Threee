@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.isummit.om.sample.GuestInfoDialogActivity">
+    tools:context="com.isummit.om.sample.GuestInfoDialogActivity"
+    android:background="@color/blaccktr">
 
 
     <ImageView

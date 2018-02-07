@@ -11,7 +11,8 @@
     android:nestedScrollingEnabled="true"
     android:scrollbars="vertical"
     app:layout_scrollFlags="scroll|enterAlways"
-    tools:context="com.isummit.om.sample.summit08">
+    tools:context="com.isummit.om.sample.summit08"
+    android:background="@drawable/background_black">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -57,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
+        android:textColor="@color/GREY_7"
         android:textStyle="italic"
         android:text="Loading Images....."/>
     <ScrollView
@@ -83,6 +85,7 @@
                 android:layout_marginTop="17dp"
                 android:text="Date of Event"
                 android:textAlignment="textStart"
+                android:textColor="@color/WHITE"
                 android:textSize="16sp" />
 
             <TextView
@@ -94,7 +97,7 @@
                 android:layout_marginTop="18dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp" />
 
             <View
@@ -112,6 +115,7 @@
                 android:layout_below="@+id/date"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
+                android:textColor="@color/WHITE"
                 android:text="Theme of 3i summit 2008"
                 android:textAlignment="textStart"
                 android:textSize="16sp" />
@@ -125,7 +129,7 @@
                 android:layout_marginTop="14dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp" />
 
             <View
@@ -144,6 +148,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Venue"
                 android:textAlignment="textStart"
+                android:textColor="@color/WHITE"
                 android:textSize="16sp" />
 
             <TextView
@@ -155,7 +160,7 @@
                 android:layout_marginTop="14dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp" />
 
             <View
@@ -174,6 +179,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="35dp"
                 android:text="Speakers"
+                android:textColor="@color/WHITE"
                 android:textAlignment="textStart"
                 android:textSize="16sp" />
 
@@ -195,7 +201,7 @@
                 android:paddingBottom="50dp"
                 android:text="Loading data..."
                 android:textAlignment="textStart"
-                android:textColor="#000000"
+                android:textColor="@color/GREY_7"
                 android:textSize="18sp" />
 
 
