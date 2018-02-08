@@ -26,7 +26,7 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
     private CardView hr,start_up,chief,igi_guests;
     private ArrayList<String> guest_array= new ArrayList<>();
     private String guest_count;
-    private TextView textView, textView1, textView3, textView4, textView5;
+    private TextView textView, textView1, textView4, textView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
         textView=findViewById(R.id.textView);
         textView1=findViewById(R.id.textView1);
-        textView3=findViewById(R.id.textView3);
         textView4=findViewById(R.id.textView4);
         textView5=findViewById(R.id.textView5);
 
@@ -91,7 +90,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
 
         textView.setText(guest_array.get(4));
         textView1.setText(guest_array.get(2));
-        textView3.setText(guest_array.get(0));
         textView4.setText(guest_array.get(1));
         textView5.setText(guest_array.get(3));
     }
@@ -219,7 +217,7 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         }
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_5);
-                        category=tv_category.getText().toString();
+                        category="IGI Guests";
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
                         startActivity(guestList);
