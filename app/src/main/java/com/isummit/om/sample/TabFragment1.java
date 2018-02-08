@@ -4,41 +4,33 @@ package com.isummit.om.sample;
  * Created by Sai_Kameswari on 24-01-2018.
  */
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayer.Provider;
-import com.google.android.youtube.player.YouTubePlayerFragment;
-import com.google.android.youtube.player.YouTubePlayerView;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class TabFragment1 extends Fragment {
     private TextView txtTimerDay, txtTimerHour, txtTimerMinute, txtTimerSecond;
     private TextView tvEvent;
     private Handler handler;
     private Runnable runnable;
-    private static final int RECOVERY_REQUEST = 1;
-
+    private String val;
+    private String prefName = "userNamePref";
+    private String EVENT_TIME="event_time";
+    private Context context;
     CardView click;
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,13 +45,20 @@ public class TabFragment1 extends Fragment {
         tvEvent = rootView.findViewById(R.id.tvhappyevent);
 
 
+        SharedPreferences prefs = this.getContext().getSharedPreferences(prefName, MODE_PRIVATE);
+        val = prefs.getString(EVENT_TIME, "");
+        System.out.println("Vlue: "+val);
 
-
-        countDownStart();
+            countDownStart();
        return rootView;
     }
 
     public void countDownStart() {
+        //Variables that store user credentials
+        if(val.equals(""))
+        {
+            val="23-02-2018-18-06-00";
+        }
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -67,9 +66,10 @@ public class TabFragment1 extends Fragment {
                 handler.postDelayed(this, 1000);
                 try {
                     SimpleDateFormat dateFormat = new SimpleDateFormat(
-                            "yyyy-MM-dd");
+                            "dd-MM-yyyy-hh-mm-ss");
                     // Please here set your event date//YYYY-MM-DD
-                    Date futureDate = dateFormat.parse("2018-2-23");
+                    Date futureDate = dateFormat.parse(val);
+
                     Date currentDate = new Date();
                     if (!currentDate.after(futureDate)) {
                         long diff = futureDate.getTime()
@@ -103,6 +103,4 @@ public class TabFragment1 extends Fragment {
     public void textViewGone() {
         Toast.makeText(getContext(),"Click on Go Live",Toast.LENGTH_SHORT).show();
     }
-
-
 }

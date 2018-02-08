@@ -1,7 +1,5 @@
 package com.isummit.om.sample;
 
-import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,12 +20,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -35,9 +31,6 @@ import com.google.firebase.storage.StorageReference;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    // Folder path for Firebase Storage.
-    String Storage_Path = "Img/";
 
     // Root Database Name for Firebase Database.
     public static final String Database_Path = "Images";
@@ -55,7 +48,8 @@ public class MainActivity extends AppCompatActivity
     String USERNAME_KEY ="UserName";
     String EMAIL_KEY = "email";
     String prefName = "userNamePref";
-    private String userName;
+    private String userName, val;
+    private String EVENT_TIME="event_time";
     private NavigationView navigationView;
 
     @Override
@@ -91,16 +85,13 @@ public class MainActivity extends AppCompatActivity
 
         tabLayout =  findViewById(R.id.tab_layout);
 
-
-
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_home_white));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_about_us_white));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_event_white_24dp));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-         viewPager = (ViewPager) findViewById(R.id.pager);
-         adapter = new PagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
+         viewPager =  findViewById(R.id.pager);
+         adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

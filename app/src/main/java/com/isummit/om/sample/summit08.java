@@ -61,12 +61,12 @@ public class summit08 extends AppCompatActivity {
 
         myRef=FirebaseDatabase.getInstance().getReference("first");
         myRef.child("Speakers").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String val = dataSnapshot.getValue(String.class);
-                tvs.setText(val);
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String val = dataSnapshot.getValue(String.class);
+                    tvs.setText(val);
 
-            }
+                }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {

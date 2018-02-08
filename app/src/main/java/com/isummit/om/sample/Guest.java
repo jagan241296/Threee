@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Guest extends AppCompatActivity implements View.OnClickListener{
-    private CardView hr,start_up,alumni,chief,igi_guests;
+    private CardView hr,start_up,chief,igi_guests;
     private ArrayList<String> guest_array= new ArrayList<>();
     private String guest_count;
     private TextView textView, textView1, textView3, textView4, textView5;
@@ -34,7 +34,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_guest);
         hr=findViewById(R.id.hr);
         start_up=findViewById(R.id.start_up);
-        alumni=findViewById(R.id.alumni);
         chief=findViewById(R.id.chief);
         igi_guests=findViewById(R.id.igi_guests);
 
@@ -77,7 +76,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
         });
         hr.setOnClickListener(this);
         start_up.setOnClickListener(this);
-        alumni.setOnClickListener(this);
         chief.setOnClickListener(this);
         igi_guests.setOnClickListener(this);
 
@@ -158,38 +156,6 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                         guestList = new Intent(Guest.this, GuestListActivity.class);
                         tv_category= findViewById(R.id.textView_2);
                         category="Start-Up CEO's";
-                        bundle.putString("category", category);
-                        guestList.putExtras(bundle);
-                        startActivity(guestList);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-            }
-            break;
-            case R.id.alumni:
-            {
-                Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                alumni.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        boolean netConnected=isNetworkAvailable();
-                        if(netConnected==false)
-                        {
-                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        guestList = new Intent(Guest.this, GuestListActivity.class);
-                        tv_category= findViewById(R.id.textView_3);
-                        category=tv_category.getText().toString();
                         bundle.putString("category", category);
                         guestList.putExtras(bundle);
                         startActivity(guestList);
