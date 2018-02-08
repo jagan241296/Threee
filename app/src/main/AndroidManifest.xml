@@ -65,9 +65,11 @@
         <activity android:name=".summit14" />
         <activity android:name=".summit15" />
         <activity android:name=".summit16" />
-        <activity android:name=".summit17"></activity>
-        <activity android:name=".GalleryImageZoom"
-            android:theme="@android:style/Theme.Dialog"></activity>
+        <activity android:name=".summit17" />
+        <activity
+            android:name=".GalleryImageZoom"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".GifPlay"></activity>
     </application>
 
 </manifest>
