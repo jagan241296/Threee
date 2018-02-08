@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -36,6 +37,7 @@
             android:textColor="@android:color/black"
             android:textSize="26sp" />
 
+
         <com.github.siyamed.shapeimageview.CircularImageView
             android:id="@+id/imageView"
             android:layout_width="90dp"
@@ -45,6 +47,19 @@
             android:layout_marginTop="35dp"
             android:layout_toStartOf="@+id/info_text"
             card_view:srcCompat="@drawable/indira_logo" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="450dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info_text"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Company Name" />
 
 
     </RelativeLayout>

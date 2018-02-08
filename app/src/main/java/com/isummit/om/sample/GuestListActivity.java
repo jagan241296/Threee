@@ -34,6 +34,7 @@ public class GuestListActivity extends AppCompatActivity {
     private ProgressDialog  progress;
     private DatabaseReference rootRef;
     private List<String> names = new ArrayList<>();
+    private List<String> company = new ArrayList<>();
     private List<String> names_url = new ArrayList<>();
     private List<String> record = new ArrayList<>();
     private String name="";
@@ -79,6 +80,7 @@ public class GuestListActivity extends AppCompatActivity {
                     name=childSnapShot.getValue().toString();
                     split_data=name.split("_");
                     names.add(split_data[0]);
+                    company.add(split_data[2]);
                     names_url.add(split_data[4]);
                     record.add(name);
                 }
@@ -103,7 +105,7 @@ public class GuestListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new CardViewDataAdapter(names,record,names_url,getBaseContext());
+        mAdapter = new CardViewDataAdapter(names,company,record,names_url,getBaseContext());
         mRecyclerView.setAdapter(mAdapter);
 
     }

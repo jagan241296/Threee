@@ -24,6 +24,7 @@ import java.util.List;
 
 public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapter.ViewHolder> {
     public List<String> names;
+    public List<String> company;
     public List<String> record;
     public List<String> names_url;
     public Context context;
@@ -31,8 +32,9 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CardViewDataAdapter(List names, List record,List names_url, Context context) {
+    public CardViewDataAdapter(List names,List company, List record,List names_url, Context context) {
         this.names = names;
+        this.company = company;
         this.context = context;
         this.record = record;
         this.names_url=names_url;
@@ -58,8 +60,10 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
 
         String url=names_url.get(position).toString();
+
         Picasso.with(context).load(url).into(viewHolder.img);
         viewHolder.tvtinfo_text.setText(names.get(position));
+        viewHolder.tvcompany_text.setText("("+company.get(position)+")");
 
     }
 
@@ -73,6 +77,7 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
     public  class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tvtinfo_text;
+        public TextView tvcompany_text;
        // public Button bt1,bt2;
         public ImageView img;
         Context context;
@@ -80,6 +85,7 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
             super(itemLayoutView);
             this.context=context;
             tvtinfo_text = itemLayoutView.findViewById(R.id.info_text);
+            tvcompany_text = itemLayoutView.findViewById(R.id.tv_company);
             img= itemLayoutView.findViewById(R.id.imageView);
 
             itemLayoutView.setOnClickListener(new View.OnClickListener(){
