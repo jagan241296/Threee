@@ -54,12 +54,9 @@
     <string name="icem">Indira College of Engineering and Management</string>
 
     //aboutUS Data
-    <string name="aboutus">IGI started the Indira International Innovation Summit in 2008 with an aim to promote the Industry – academia linkages to enable the Indira College of Engineering and Management (ICEM), Pune to emerge as a Leading technical manpower source, but today this summit has become a platform for rekindling the power of creativity and innovations which would drive future innovation in the Industry.\n
-    We are living in the era of “Digital India” where the entire country is in the process of getting digitalized. \n
-        Innovation functions as a stimulus for the growth of the industries and eventually development of the society making people’s lives easier and more comfortable.\n
-        We, at ICEM, strongly believe that innovation become a sine qua non for the very survival of any business and therefore nurture a culture of thinking out-of-the-box towards creating a successful career, amongst the students pursuing various professional courses within the institute.\n
-        The 9th 3I Summit aimed to offer a great learning experience to the students of Indira and to imbibe the spirit of innovation in them. The wealth of knowledge and experience available at the summit served as a motivation for the young generation at Indira, to realize the value of innovation and to benefit from the presence of ace practitioners.\n
-    </string>
+    <string name="aboutus">Shree Chanakya Education Society’s “Indira Group of Institutes”, Pune was established in 1994, with the explicit vision to provide sustainable impetus to the corporate and entrepreneurial abilities in the youth.
+
+The realization that a robust framework of education is indispensable for the growth of global leaders, the visionary, Dr. Tarita Shankar, Chairperson, Indira Group, integrated her pursuit of excellence and articulated educational institutions, known as Indira Group of Institutes (IGI), which imbibe human excellence and demonstrate strong social values, with a single minded pursuit of developing the youth to become business leaders.</string>
 
 
     <string name="about_indira">Indira College of Engineering and Management, established in 2007, is a venture of SCES. The institute is approved by All India Council of Technical Education (AICTE), New Delhi and Govt. of Maharashtra and affiliated to the University of Pune.
@@ -75,6 +72,7 @@ confidently and successfully lead the organization.
     <string name="seek_to_hint">Seconds</string>
 
 
-    <string name="about3i">Indira College of Engineering and Management has been successfully conducting International Summits and HR Awards. We are pleased to announce that this year too, we are organizing Start-up Summit with the theme “Startup India: the Spirit of Entrepreneurship and Employability”. It is rightly said that “A business is simply an idea to make other people’s lives better”. Every new business starts with an insight. Each one of us is gifted with the power to think and change the face of tomorrow. Wherever the person’s interest lies, certainly there is a way to turn it into a thriving business.
+    <string name="about3i">IGI started the Indira International Innovation Summit in 2008 with an aim to promote the Industry – academia linkages to enable the Indira College of Engineering and Management (ICEM), Pune to emerge as a Leading technical manpower source, but today this summit has become a platform for rekindling the power of creativity and innovations which would drive future innovation in the Industry.
+There are immense opportunities in India for business growth in a growing economy, but it requires innovative minds to capture this market. Indira College of Engineering and Management organizes “Indira International Innovation Summit” and “HR Excellence awards” every year. The Innovators, Entrepreneurs and Senior leaders from companies of repute are recognized and awarded for their contribution in their respective fields and inspiring the spirit of innovative thinking.
 </string>
 </resources>
