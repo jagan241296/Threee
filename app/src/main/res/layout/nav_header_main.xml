@@ -45,6 +45,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="13dp"
         android:layout_marginStart="26dp"
-        android:text="android.studio@android.com" />
+        android:text="android.studio@android.com"/>
 
 </RelativeLayout>
