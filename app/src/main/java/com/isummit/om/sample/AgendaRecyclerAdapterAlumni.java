@@ -1,10 +1,13 @@
 package com.isummit.om.sample;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -61,16 +64,24 @@ public class AgendaRecyclerAdapterAlumni extends RecyclerView.Adapter<AgendaRecy
 
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        CardView cardView;
         public TextView agenda_msg;
         public TextView agenda_time;
         // public Button bt1,bt2;
 
-
         public ViewHolder(final Context context, View itemLayoutView) {
             super(itemLayoutView);
+            cardView=itemLayoutView.findViewById(R.id.agenda_card);
             agenda_time =  itemLayoutView.findViewById(R.id.agenda_time);
             agenda_msg =  itemLayoutView.findViewById(R.id.agenda_msg);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Animation myAnim = AnimationUtils.loadAnimation(context, R.anim.bounce);
+                    v.startAnimation(myAnim);
+                }
+            });
         }
     }
 }

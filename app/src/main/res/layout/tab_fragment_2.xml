@@ -71,34 +71,33 @@
         android:textSize="18sp" />
 
 
-    <Button
-        android:id="@+id/icem"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/textView22"
-        android:layout_marginTop="370dp"
-        android:layout_marginEnd="85dp"
-        android:background="@drawable/main_page_but"
-        android:backgroundTint="@color/Purple"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:text="About Indira College Of Engineering and Mgmt.(ICEM)"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="16sp" />
-    <TextView
-        android:id="@+id/textView23"
+        <Button
+            android:id="@+id/icem"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView22"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/main_page_but"
+            android:backgroundTint="@color/Purple"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:text="About Indira College Of Engineering and Mgmt.(ICEM)"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/icem"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:text="@string/about_indira"
-        android:textAlignment="textStart"
-        android:textColor="@color/WHITE"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textView23"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/icem"
+            android:padding="10dp"
+            android:text="@string/about_indira"
+            android:textAlignment="textStart"
+            android:textColor="@color/WHITE"
+            android:textSize="18sp" />
 
 </RelativeLayout>
     </ScrollView>
