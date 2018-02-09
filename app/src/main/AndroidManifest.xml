@@ -51,10 +51,7 @@
             android:name=".GuestInfoDialogActivity"
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".DisplayImagesActivity" />
-        <activity android:name=".DisplayImageButtonActivity" />
-        <activity android:name=".Gallery" />
         <activity android:name=".GatePass" />
-        <activity android:name=".Dummy" />
         <activity android:name=".Youtubes" />
         <activity
             android:name=".SplashTwo"
