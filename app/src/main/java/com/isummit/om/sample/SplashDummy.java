@@ -25,7 +25,6 @@ public class SplashDummy extends AppCompatActivity {
 
         if(userName=="")
         {
-            Log.w("myApp", "no network");
             startActivity(new Intent(SplashDummy.this, Splash.class));
             finish();
         }

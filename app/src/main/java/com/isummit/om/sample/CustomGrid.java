@@ -13,6 +13,8 @@ package com.isummit.om.sample;
         import android.widget.ImageView;
         import android.widget.TextView;
 
+        import java.util.List;
+
 /**
  * Created by Developer on 21-01-2018.
  */
@@ -21,25 +23,21 @@ package com.isummit.om.sample;
 public class CustomGrid extends BaseAdapter {
 
     private Context mContext;
-    private final String[] web;
+    private final List<String> web;
 
-    public final int[] imageid;
+
     View grid;
 
 
-    public CustomGrid(Context c, String[] web,int[] imageid) {
+    public CustomGrid(Context c, List<String> web) {
         mContext=c;
         this.web = web;
-
-        this.imageid = imageid;
     }
 
     @Override
     public int getCount() {
-        return web.length;
+        return web.size();
     }
-
-
     @Override
     public Object getItem(int position) {
         return null;
@@ -57,15 +55,13 @@ public class CustomGrid extends BaseAdapter {
         if(convertView==null) {
             grid=new View(mContext);
             grid = inflater.inflate(R.layout.gridview, null);
-            TextView textView = (TextView) grid.findViewById(R.id.grid_text);
-            ImageView imageView = (ImageView) grid.findViewById(R.id.gridimage);
-            textView.setText(web[position]);
-            //imageView.setImageResource(imageid[position]);
         }
         else
         {
             grid= convertView;
         }
+        TextView textView =  grid.findViewById(R.id.grid_text);
+        textView.setText(web.get(position));
         return grid;
     }
 }

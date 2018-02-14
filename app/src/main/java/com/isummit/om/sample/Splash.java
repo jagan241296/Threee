@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash extends AppCompatActivity {
-    private ImageView imageViewLogo,imageViewRegister;
+    private ImageView imageViewLogo;
+    private Button imageViewRegister;
     private FirebaseAuth auth;
 
 

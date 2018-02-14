@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity
     private TextView username, user_email;
     private DatabaseReference mref;
     String USERNAME_KEY ="UserName";
-    String EMAIL_KEY = "email";
     String prefName = "userNamePref";
     private String userName, val;
     private String EVENT_TIME="event_time";
@@ -63,13 +62,12 @@ public class MainActivity extends AppCompatActivity
 
         SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
         userName = userPrefs.getString(USERNAME_KEY, "");
-        String email = userPrefs.getString(EMAIL_KEY, "");
         storageReference = FirebaseStorage.getInstance().getReference();
 
         // Assign FirebaseDatabase instance with root database name.
         databaseReference = FirebaseDatabase.getInstance().getReference(Database_Path);
 
-        if(userName==""||email=="")
+        if(userName=="")
         {
             startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             finish();
@@ -126,11 +124,10 @@ public class MainActivity extends AppCompatActivity
         View header=navigationView.getHeaderView(0);
 
         username = header.findViewById(R.id.username);
-        user_email = header.findViewById(R.id.user_email);
         profile=header.findViewById(R.id.profile_pic);
 
         username.setText(userName);
-        user_email.setText(email);
+
 
        // progressDialog = new ProgressDialog(MainActivity.this);
 

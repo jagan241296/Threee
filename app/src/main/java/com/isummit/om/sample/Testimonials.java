@@ -43,7 +43,6 @@ public class Testimonials extends AppCompatActivity {
     String[] split_data,split_data_time;
     private ProgressDialog progress;
     String USERNAME_KEY ="UserName";
-    String EMAIL_KEY = "email";
     String prefName = "userNamePref";
 
 
@@ -98,9 +97,8 @@ public class Testimonials extends AppCompatActivity {
                         }
                         SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
                         String userName = userPrefs.getString(USERNAME_KEY, "");
-                        String email = userPrefs.getString(EMAIL_KEY, "");
 
-                        if(userName==""||email=="")
+                        if(userName=="")
                         {
                             startActivity(new Intent(Testimonials.this, RegistrationActivity.class));
                             finish();

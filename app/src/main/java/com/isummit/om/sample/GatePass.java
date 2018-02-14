@@ -44,7 +44,7 @@ public class GatePass extends AppCompatActivity {
     ImageView imageView;
     CardView button;
     EditText editText;
-    String EditTextValue;
+    String EditTextValue, qrcodeText;
     private ProgressDialog progress;
     public final static int QRcodeWidth = 500;
     Bitmap bitmap;
@@ -109,6 +109,7 @@ public class GatePass extends AppCompatActivity {
                                     if (dataSnapshot.getValue() != null) {
                                         try {
 
+                                            qrcodeText = dataSnapshot.getValue().toString();
                                             onSucess();
 
                                         } catch (Exception e) {
@@ -147,7 +148,7 @@ public class GatePass extends AppCompatActivity {
 
     public void onSucess() {
         try {
-            bitmap = TextToImageEncode(EditTextValue);
+            bitmap = TextToImageEncode(qrcodeText);
 
             progress.dismiss();
             imageView.setImageBitmap(bitmap);

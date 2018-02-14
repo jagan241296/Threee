@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:foregroundGravity="center"
             android:padding="10dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher_new" />
     </RelativeLayout>
 
     <TextView
