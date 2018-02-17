@@ -65,8 +65,7 @@ public class TabFragment1 extends Fragment {
             public void run() {
                 handler.postDelayed(this, 1000);
                 try {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat(
-                            "dd-MM-yyyy-hh-mm-ss");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
                     // Please here set your event date//YYYY-MM-DD
                     Date futureDate = dateFormat.parse(val);
 
@@ -102,5 +101,6 @@ public class TabFragment1 extends Fragment {
 
     public void textViewGone() {
         Toast.makeText(getContext(),"Click on Go Live",Toast.LENGTH_SHORT).show();
+
     }
 }

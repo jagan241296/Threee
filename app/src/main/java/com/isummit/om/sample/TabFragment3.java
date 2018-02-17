@@ -20,15 +20,18 @@ import com.squareup.picasso.Picasso;
 
 public class TabFragment3 extends Fragment implements View.OnClickListener{
     private CardView cardAlumni;
-    private CardView cardSummit;
+    private CardView cardSummit, cardSession;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.tab_fragment_3, container, false);
         cardAlumni = view.findViewById(R.id.cardAlumni);
         cardSummit = view.findViewById(R.id.cardSummit);
+        cardSession = view.findViewById(R.id.cardSession);
 
         cardAlumni.setOnClickListener(this);
         cardSummit.setOnClickListener(this);
+        cardSession.setOnClickListener(this);
+
         return view;
     }
 
@@ -76,6 +79,31 @@ public class TabFragment3 extends Fragment implements View.OnClickListener{
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         Intent aa = new Intent(getActivity(),ActivitySummitAgenda.class);
+                        startActivity( aa );
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                break;
+            }
+            case R.id.cardSession:
+            {
+
+                Animation myAnima = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+                cardSession.startAnimation(myAnima);
+
+                myAnima.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Intent aa = new Intent(getActivity(),SessionActivity.class);
                         startActivity( aa );
                     }
 

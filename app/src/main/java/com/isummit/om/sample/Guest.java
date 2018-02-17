@@ -1,5 +1,6 @@
 package com.isummit.om.sample;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -7,6 +8,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
@@ -21,28 +24,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Guest extends AppCompatActivity implements View.OnClickListener{
-    private CardView hr,start_up,chief,igi_guests;
-    private ArrayList<String> guest_array= new ArrayList<>();
-    private String guest_count;
-    private TextView textView, textView1, textView4, textView5;
+public class Guest extends AppCompatActivity {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private List<String> guest_cat, guest_count;
+    String record;
+    String[] record_split;
+    private ProgressDialog  progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guest);
-        hr=findViewById(R.id.hr);
-        start_up=findViewById(R.id.start_up);
-        chief=findViewById(R.id.chief);
-        igi_guests=findViewById(R.id.igi_guests);
+        setContentView(R.layout.guest_recycler);
 
-        textView=findViewById(R.id.textView);
-        textView1=findViewById(R.id.textView1);
-        textView4=findViewById(R.id.textView4);
-        textView5=findViewById(R.id.textView5);
-
-        Toolbar mToolbar =  findViewById(R.id.toolbar);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
         mToolbar.setTitle("Guests");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -54,182 +53,41 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                 finish();
             }
         });
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait while fetching data..");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
 
-        DatabaseReference rootRef=FirebaseDatabase.getInstance().getReference("guest_count");
+        guest_cat = new ArrayList<>();
+        guest_count = new ArrayList<>();
+
+        boolean netConnected=isNetworkAvailable();
+        if(netConnected==false)
+        {
+            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Guest Category");
 
         rootRef.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot childSnapShot: dataSnapshot.getChildren())
-                {
-                    guest_count=childSnapShot.getValue().toString();
-                    System.out.println("Value: "+guest_count);
-                    guest_array.add(guest_count);
+                for (DataSnapshot childSnapShot : dataSnapshot.getChildren()) {
+                    record = childSnapShot.getValue().toString();
+                    record_split = record.split("_");
+                    guest_cat.add(record_split[0]);
+                    guest_count.add(record_split[1]);
                 }
-                setGuest();
+                setAdapterData();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        hr.setOnClickListener(this);
-        start_up.setOnClickListener(this);
-        chief.setOnClickListener(this);
-        igi_guests.setOnClickListener(this);
-
-    }
-    public void setGuest()
-    {
-         /*
-        ALumni-textView3
-        Chief guests-textView4
-        HR-textView1
-        IGI-textView5
-        Start up-textView*/
-
-        textView.setText(guest_array.get(4));
-        textView1.setText(guest_array.get(2));
-        textView4.setText(guest_array.get(1));
-        textView5.setText(guest_array.get(3));
-    }
-
-    TextView tv_category;
-    Intent guestList;
-    Bundle bundle = new Bundle();
-    String category;
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.hr:
-            {
-                Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                hr.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        boolean netConnected=isNetworkAvailable();
-                        if(netConnected==false)
-                        {
-                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        guestList = new Intent(Guest.this, GuestListActivity.class);
-                        tv_category= findViewById(R.id.textView_1);
-                        category=tv_category.getText().toString();
-                        bundle.putString("category", category);
-                        guestList.putExtras(bundle);
-                        startActivity(guestList);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-            }break;
-            case R.id.start_up:
-            {
-                Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                start_up.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        boolean netConnected=isNetworkAvailable();
-                        if(netConnected==false)
-                        {
-                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        guestList = new Intent(Guest.this, GuestListActivity.class);
-                        tv_category= findViewById(R.id.textView_2);
-                        category="Start-Up CEO's";
-                        bundle.putString("category", category);
-                        guestList.putExtras(bundle);
-                        startActivity(guestList);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-            }
-            break;
-            case R.id.chief:
-            {
-                Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                chief.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        boolean netConnected=isNetworkAvailable();
-                        if(netConnected==false)
-                        {
-                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        guestList = new Intent(Guest.this, GuestListActivity.class);
-                        tv_category= findViewById(R.id.textView_4);
-                        category=tv_category.getText().toString();
-                        bundle.putString("category", category);
-                        guestList.putExtras(bundle);
-                        startActivity(guestList);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-            }
-            break;
-            case R.id.igi_guests:
-            {
-                Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-                igi_guests.startAnimation(myAnim);
-                myAnim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        boolean netConnected=isNetworkAvailable();
-                        if(netConnected==false)
-                        {
-                            Toast.makeText(Guest.this, "Network Error...",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        guestList = new Intent(Guest.this, GuestListActivity.class);
-                        tv_category= findViewById(R.id.textView_5);
-                        category="IGI Guests";
-                        bundle.putString("category", category);
-                        guestList.putExtras(bundle);
-                        startActivity(guestList);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-            }
-        }
     }
 
     private boolean isNetworkAvailable() {
@@ -237,5 +95,21 @@ public class Guest extends AppCompatActivity implements View.OnClickListener{
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
+    public void setAdapterData() {
+        progress.dismiss();
+        mRecyclerView = findViewById(R.id.guest_cat_recycler);
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new GuestCategoryAdapter(guest_cat, guest_count, getBaseContext());
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 }

@@ -29,6 +29,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,6 +54,8 @@ public class MainActivity extends AppCompatActivity
     private String userName, val;
     private String EVENT_TIME="event_time";
     private NavigationView navigationView;
+    private String event_time;
+    private Date currentDate, event_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,8 @@ public class MainActivity extends AppCompatActivity
 
         SharedPreferences userPrefs = getSharedPreferences(prefName, MODE_PRIVATE);
         userName = userPrefs.getString(USERNAME_KEY, "");
+        event_time = userPrefs.getString(EVENT_TIME, "");
+
         storageReference = FirebaseStorage.getInstance().getReference();
 
         // Assign FirebaseDatabase instance with root database name.
@@ -71,6 +79,15 @@ public class MainActivity extends AppCompatActivity
         {
             startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             finish();
+        }
+        //get Date
+        currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+        // Please here set your event date//YYYY-MM-DD
+        try {
+            event_date = dateFormat.parse(event_time);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
@@ -244,6 +261,11 @@ public class MainActivity extends AppCompatActivity
                 if(netConnected==false)
                 {
                     Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                if (currentDate.before(event_date))
+                {
+                    Toast.makeText(MainActivity.this, "This page will be opened after the Event Starts",Toast.LENGTH_SHORT).show();
                     break;
                 }
                 Intent testi=new Intent(MainActivity.this,Testimonials.class);

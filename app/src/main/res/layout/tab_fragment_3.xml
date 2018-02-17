@@ -63,6 +63,32 @@
 
     </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardSession"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/cardSummit"
+        android:layout_alignStart="@+id/cardSummit"
+        android:layout_below="@+id/cardSummit"
+        android:foregroundGravity="center"
+        app:cardBackgroundColor="@color/Purple"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="Session Rooms"
+            android:textAlignment="center"
+            android:textColor="@color/WHITE"
+            android:textSize="25dp" />
+
+    </android.support.v7.widget.CardView>
+
 </RelativeLayout>
 
     </ScrollView>

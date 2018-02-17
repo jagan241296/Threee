@@ -39,6 +39,7 @@ public class GuestListActivity extends AppCompatActivity {
     private List<String> record = new ArrayList<>();
     private String name="";
     private String [] split_data;
+    private int status=0;
 
 
     @Override
@@ -68,6 +69,20 @@ public class GuestListActivity extends AppCompatActivity {
         // To dismiss the dialog
 
 
+        switch (category)
+        {
+            case "Start-Up CEO's/Founder's/Co-Founder's":
+            {
+                category = "Start-Up CEO's";
+                break;
+            }
+           case "IGI Dignitaries":
+            {
+                category = "IGI Guests";
+                status = 1;
+                break;
+            }
+        }
         //Get firebase instance
         rootRef= FirebaseDatabase.getInstance().getReference("Guests").child(category);
         //Get Children record
@@ -105,7 +120,7 @@ public class GuestListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new CardViewDataAdapter(names,company,record,names_url,getBaseContext());
+        mAdapter = new CardViewDataAdapter(names,company,record,names_url,getBaseContext(), status);
         mRecyclerView.setAdapter(mAdapter);
 
     }

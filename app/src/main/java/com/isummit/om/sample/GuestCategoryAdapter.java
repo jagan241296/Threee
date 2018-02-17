@@ -14,91 +14,77 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 /**
- * Created by Sai_Kameswari on 26-01-2018.
+ * Created by Sai_Kameswari on 14-02-2018.
  */
 
-public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapter.ViewHolder> {
-    public List<String> names;
-    public List<String> company;
-    public List<String> record;
-    public List<String> names_url;
+public class GuestCategoryAdapter extends RecyclerView.Adapter<GuestCategoryAdapter.ViewHolder> {
+
+    public List<String> guest_cat;
+    public List<String> guest_count;
     public Context context;
-    private int status;
 
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CardViewDataAdapter(List names,List company, List record,List names_url, Context context, int status) {
-        this.names = names;
-        this.company = company;
+    public GuestCategoryAdapter(List guest_cat,List guest_count, Context context) {
+        this.guest_cat = guest_cat;
+        this.guest_count = guest_count;
         this.context = context;
-        this.record = record;
-        this.names_url=names_url;
-        this.status = status;
+
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public CardViewDataAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GuestCategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.cardview_row, null);
+                R.layout.layout_guest_card_item, null);
 
         // create ViewHolder
 
-        ViewHolder viewHolder = new ViewHolder(itemLayoutView,context);
+        GuestCategoryAdapter.ViewHolder viewHolder = new GuestCategoryAdapter.ViewHolder(itemLayoutView,context);
         return viewHolder;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(GuestCategoryAdapter.ViewHolder viewHolder, int position) {
 
-
-        String url=names_url.get(position).toString();
-
-        Picasso.with(context).load(url).into(viewHolder.img);
-        viewHolder.tvtinfo_text.setText(names.get(position));
-        viewHolder.tvcompany_text.setText("("+company.get(position)+")");
+        viewHolder.tv_guest_cat.setText(guest_cat.get(position));
+        viewHolder.tv_guest_count.setText(guest_count.get(position));
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return names.size();
+        return guest_count.size();
     }
 
     // inner class to hold a reference to each item of RecyclerView
     public  class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvtinfo_text;
-        public TextView tvcompany_text;
-       // public Button bt1,bt2;
-        public ImageView img;
+        public TextView tv_guest_cat, tv_guest_count;
+
         Context context;
         public ViewHolder(final View itemLayoutView, final Context context) {
             super(itemLayoutView);
             this.context=context;
-            tvtinfo_text = itemLayoutView.findViewById(R.id.info_text);
-            tvcompany_text = itemLayoutView.findViewById(R.id.tv_company);
-            img= itemLayoutView.findViewById(R.id.imageView);
+            tv_guest_cat = itemLayoutView.findViewById(R.id.tv_guest_cat);
+            tv_guest_count = itemLayoutView.findViewById(R.id.tv_guest_count);
 
             itemLayoutView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     // get position
-                    int pos = getAdapterPosition();
+                    final int pos = getAdapterPosition();
                     // check if item still exists
                     if(pos != RecyclerView.NO_POSITION){
 
-                       final String data=record.get(pos);
                         Animation myAnim = AnimationUtils.loadAnimation(context, R.anim.bounce);
                         itemLayoutView.startAnimation(myAnim);
                         myAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -108,15 +94,8 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
                             @Override
                             public void onAnimationEnd(Animation animation) {
+                                passActivity(guest_cat.get(pos));
 
-                                if(status==0)
-                                {
-                                    passActivity(data);
-                                }
-                                else
-                                {
-                                    passActivityIGI(data);
-                                }
                             }
 
                             @Override
@@ -133,20 +112,10 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
         public void passActivity(String data)
         {
             Bundle args = new Bundle();
-            Intent testi=new Intent(context,GuestInfoDialogActivity.class);
+            Intent testi=new Intent(context,GuestListActivity.class);
             testi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            testi.putExtra("record",data);
+            testi.putExtra("category",data);
             context.startActivity(testi);
-        }
-
-        public void passActivityIGI(String data)
-        {
-            /*Bundle args = new Bundle();
-            Intent testi=new Intent(context,IGIGuestActivity.class);
-            testi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            testi.putExtra("record",data);
-            context.startActivity(testi);*/
-
         }
     }
 }

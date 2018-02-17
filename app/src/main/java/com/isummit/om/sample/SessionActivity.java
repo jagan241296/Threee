@@ -1,11 +1,8 @@
 package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivitySummitAgenda extends AppCompatActivity {
+public class SessionActivity extends AppCompatActivity {
 
     private DatabaseReference rootRef;
     private List<String> agenda_time = new ArrayList<>();
@@ -35,9 +32,9 @@ public class ActivitySummitAgenda extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.agenda_recycler);
+        setContentView(R.layout.activity_session);
         Toolbar mToolbar =  findViewById(R.id.toolbar);
-        mToolbar.setTitle("3I Summit");
+        mToolbar.setTitle("Session Rooms");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -58,7 +55,7 @@ public class ActivitySummitAgenda extends AppCompatActivity {
     public void FillListView()
     {
         progress.dismiss();
-        mRecyclerView = findViewById(R.id.agenda_cycle);
+        mRecyclerView = findViewById(R.id.session_cycle);
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
@@ -77,7 +74,7 @@ public class ActivitySummitAgenda extends AppCompatActivity {
         progress.show();
         rootRef = FirebaseDatabase.getInstance().getReference("Agenda");
         agenda_time.clear();
-        rootRef.child("3 I").orderByKey().addValueEventListener(new ValueEventListener() {
+        rootRef.child("Session").orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot childSnapShot:dataSnapshot.getChildren()) {
@@ -95,12 +92,5 @@ public class ActivitySummitAgenda extends AppCompatActivity {
             }
         });
 
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

@@ -15,6 +15,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/WHITE"
         android:hint="Enter College ID"
+        android:singleLine="true"
         android:textColorHint="@color/WHITE"
         android:gravity="center"
         />

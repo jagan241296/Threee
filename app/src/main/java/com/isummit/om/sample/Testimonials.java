@@ -39,11 +39,13 @@ public class Testimonials extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    String name="";
-    String[] split_data,split_data_time;
+    private String name="";
+    private String[] split_data,split_data_time;
     private ProgressDialog progress;
-    String USERNAME_KEY ="UserName";
-    String prefName = "userNamePref";
+    private String USERNAME_KEY ="UserName";
+    private String prefName = "userNamePref";
+    private String EVENT_TIME="event_time";
+    String event_time;
 
 
 
@@ -68,9 +70,9 @@ public class Testimonials extends AppCompatActivity {
         progress.setMessage("Please wait while fetching data..");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
 
-
         onActivityLoad();
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
