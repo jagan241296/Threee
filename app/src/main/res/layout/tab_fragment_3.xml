@@ -23,7 +23,7 @@
         android:layout_margin="10dp"
         android:foregroundGravity="center"
         app:cardCornerRadius="5dp"
-        app:cardBackgroundColor="@color/Purple">
+        app:cardBackgroundColor="@color/Orange">
 
 
         <TextView
@@ -46,7 +46,7 @@
         android:layout_alignStart="@+id/cardAlumni"
         android:layout_below="@+id/cardAlumni"
         android:foregroundGravity="center"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 
@@ -72,7 +72,7 @@
         android:layout_alignStart="@+id/cardSummit"
         android:layout_below="@+id/cardSummit"
         android:foregroundGravity="center"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 

@@ -42,7 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -83,7 +83,7 @@
         android:layout_alignStart="@+id/start_up"
         android:layout_below="@+id/start_up"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -127,7 +127,7 @@
             android:layout_alignStart="@+id/hr"
             android:layout_below="@+id/hr"
             app:cardElevation="5dp"
-            app:cardBackgroundColor="@color/Purple"
+            app:cardBackgroundColor="@color/Orange"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="8dp">
 
@@ -169,7 +169,7 @@
         android:layout_alignStart="@+id/start_up"
         android:layout_below="@+id/start_up"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp">
 
@@ -209,7 +209,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         android:layout_alignStart="@+id/chief"
         android:layout_below="@+id/chief"
         app:cardElevation="5dp"

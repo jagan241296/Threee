@@ -37,14 +37,14 @@
             android:textSize="26sp" />
 
 
-        <com.github.siyamed.shapeimageview.CircularImageView
+        <ImageView
             android:id="@+id/imageView"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="17dp"
             android:layout_toStartOf="@+id/info_text"
+            android:background="@drawable/circle"
             card_view:srcCompat="@drawable/indira_logo" />
 
         <TextView

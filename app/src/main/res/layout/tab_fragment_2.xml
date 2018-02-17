@@ -27,7 +27,7 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="21sp"
-        android:backgroundTint="@color/Purple"/>
+        android:backgroundTint="@color/Orange"/>
 
     <TextView
         android:id="@+id/textView21"
@@ -54,7 +54,7 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="16sp"
-        android:backgroundTint="@color/Purple"/>
+        android:backgroundTint="@color/Orange"/>
 
     <TextView
         android:id="@+id/textView22"
@@ -79,7 +79,7 @@
             android:layout_below="@+id/textView22"
             android:layout_marginTop="18dp"
             android:background="@drawable/main_page_but"
-            android:backgroundTint="@color/Purple"
+            android:backgroundTint="@color/Orange"
             android:elevation="@dimen/cardview_default_elevation"
             android:text="About Indira College Of Engineering and Mgmt.(ICEM)"
             android:textAllCaps="false"

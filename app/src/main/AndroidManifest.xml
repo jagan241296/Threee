@@ -70,7 +70,8 @@
         <activity
             android:name=".IGIGuestActivity"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".SessionActivity"></activity>
+        <activity android:name=".SessionActivity" />
+        <activity android:name=".DeveloperActivity"></activity>
     </application>
 
 </manifest>

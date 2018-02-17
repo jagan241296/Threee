@@ -70,7 +70,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
-                app:cardBackgroundColor="@color/Purple"
+                app:cardBackgroundColor="@color/Orange"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"

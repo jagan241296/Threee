@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash extends AppCompatActivity {
     private ImageView imageViewLogo;
-    private Button imageViewRegister;
+    private ImageView imageViewRegister;
     private FirebaseAuth auth;
 
 

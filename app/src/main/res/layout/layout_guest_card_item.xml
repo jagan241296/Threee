@@ -10,7 +10,7 @@
     card_view:cardCornerRadius="5dp"
     card_view:cardUseCompatPadding="true"
     android:id="@+id/guest_card_item"
-    app:cardBackgroundColor="@color/Purple">
+    app:cardBackgroundColor="@color/Orange">
 
 <RelativeLayout
     android:layout_width="match_parent"

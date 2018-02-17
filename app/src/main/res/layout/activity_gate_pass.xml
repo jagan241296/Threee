@@ -29,7 +29,7 @@
         android:layout_gravity="bottom"
         android:layout_marginTop="27dp"
         android:gravity="center"
-        app:cardBackgroundColor="@color/Purple"
+        app:cardBackgroundColor="@color/Orange"
         app:cardCornerRadius="25dp">
 
         <RelativeLayout
