@@ -69,9 +69,14 @@
         <activity android:name=".GifPlay" />
         <activity
             android:name=".IGIGuestActivity"
+
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".SessionActivity" />
-        <activity android:name=".DeveloperActivity"></activity>
+        <activity
+            android:name=".DeveloperActivity"
+            android:theme="@style/myDialog"/>
+
+
     </application>
 
 </manifest>

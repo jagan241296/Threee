@@ -1,0 +1,9 @@
+<changelist name="app_done" date="1518865482682" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/app_done/shelved.patch" />
+  <option name="DESCRIPTION" value="app done" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="myKey.jks" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/app_done/myKey.jks" />
+  </binary>
+</changelist>

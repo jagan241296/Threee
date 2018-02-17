@@ -132,7 +132,6 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
         public void passActivity(String data)
         {
-            Bundle args = new Bundle();
             Intent testi=new Intent(context,GuestInfoDialogActivity.class);
             testi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             testi.putExtra("record",data);
@@ -141,11 +140,10 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
         public void passActivityIGI(String data)
         {
-            /*Bundle args = new Bundle();
             Intent testi=new Intent(context,IGIGuestActivity.class);
             testi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             testi.putExtra("record",data);
-            context.startActivity(testi);*/
+            context.startActivity(testi);
 
         }
     }
