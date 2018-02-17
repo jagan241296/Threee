@@ -2,6 +2,7 @@ package com.isummit.om.sample;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,10 +23,14 @@ public class SplashTwo extends AppCompatActivity {
     private String val;
     String prefName = "userNamePref";
     String EVENT_TIME="event_time";
+    private MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_two);
+
+        //play music
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.welcome2);
 
         dbs= FirebaseDatabase.getInstance().getReference("eventsdate");
         //Get Children record
@@ -57,13 +62,13 @@ public class SplashTwo extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                SystemClock.sleep(3000);
+                SystemClock.sleep(1000);
+                mp.start();
+                SystemClock.sleep(1000);
                 SharedPreferences prefs = getSharedPreferences(prefName, MODE_PRIVATE);
                 SharedPreferences.Editor prefEditor = prefs.edit();
                 prefEditor.putString(EVENT_TIME, val);
                 prefEditor.commit();
-                System.out.println("Vlue before: "+val);
-
                 Intent intent=new Intent(SplashTwo.this,MainActivity.class);
                 startActivity(intent);
                 finish();
