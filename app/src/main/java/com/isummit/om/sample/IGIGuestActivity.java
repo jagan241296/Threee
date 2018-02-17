@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -27,7 +28,9 @@ public class IGIGuestActivity extends Activity {
         setContentView(R.layout.activity_igiguest);
 
 
-            tv_gname_igi=findViewById(R.id.tv_gname_igi);
+
+
+        tv_gname_igi=findViewById(R.id.tv_gname_igi);
             tv_desig_igi=findViewById(R.id.tv_desig_igi);
             tv_company_igi=findViewById(R.id.tv_company_igi);
             imgviews_igi=findViewById(R.id.imgviews_igi);
@@ -58,6 +61,7 @@ public class IGIGuestActivity extends Activity {
 
             if(record_spilt[5].equals("Checked In"))
             {
+                System.out.println("reached here: "+record_spilt[5]);
                 Picasso.with(getApplicationContext()).load(R.drawable.double_tick).into(imgviews_igi);
                 txtview_igi.setText("Arrived at Venue");
             }

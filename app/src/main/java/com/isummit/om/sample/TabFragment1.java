@@ -57,7 +57,7 @@ public class TabFragment1 extends Fragment {
         //Variables that store user credentials
         if(val.equals(""))
         {
-            val="23-02-2018-18-06-00";
+            val="23-02-2018-18-00-00";
         }
         handler = new Handler();
         runnable = new Runnable() {
@@ -87,9 +87,14 @@ public class TabFragment1 extends Fragment {
                         txtTimerSecond.setText(""
                                 + String.format("%02d", seconds));
                     } else {
+                        txtTimerDay.setVisibility(View.INVISIBLE);
+                        txtTimerHour.setVisibility(View.INVISIBLE);
+                        txtTimerMinute.setVisibility(View.INVISIBLE);
+                        txtTimerSecond.setVisibility(View.INVISIBLE);
                         tvEvent.setVisibility(View.VISIBLE);
                         tvEvent.setText("The event started!Click on Go Live");
                         textViewGone();
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -101,6 +106,8 @@ public class TabFragment1 extends Fragment {
 
     public void textViewGone() {
         Toast.makeText(getContext(),"Click on Go Live",Toast.LENGTH_SHORT).show();
+        handler.removeCallbacks(runnable);
+
 
     }
 }

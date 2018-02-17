@@ -53,7 +53,7 @@ public class Prev extends AppCompatActivity {
         web.add("3i Summit 2014");
         web.add("3i Summit 2015");
         web.add("3i Summit 2016");
-        web.add("3i Summit 2018");
+        web.add("3i Summit 2017");
 
 
 
@@ -171,7 +171,8 @@ public class Prev extends AppCompatActivity {
                     }
                     case 9:
                     {
-                        Toast.makeText(getApplicationContext()," Will be Updated Soon",Toast.LENGTH_SHORT).show();
+                        Intent nine=new Intent(Prev.this,summit17.class);
+                        startActivity(nine);
                         break;
                     }
                     default:
