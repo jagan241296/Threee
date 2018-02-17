@@ -5,8 +5,8 @@
         android:id="@+id/developer"
         android:icon="@drawable/develop"
         android:orderInCategory="100"
-        android:title="Contributors"
-        app:showAsAction="always">
+        android:title="App Developers"
+        app:showAsAction="collapseActionView">
 
     </item>
 </menu>

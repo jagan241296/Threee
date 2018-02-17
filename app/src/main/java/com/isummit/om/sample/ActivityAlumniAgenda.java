@@ -2,6 +2,7 @@ package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -32,10 +33,10 @@ public class ActivityAlumniAgenda extends AppCompatActivity {
     private String record;
     private String[] record_spilt;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agenda_recycler);
+
         Toolbar mToolbar =  findViewById(R.id.toolbar);
         mToolbar.setTitle("Alumni Agenda");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);

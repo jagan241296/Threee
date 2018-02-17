@@ -3,6 +3,7 @@ package com.isummit.om.sample;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -175,10 +177,20 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
+        boolean netConnected=isNetworkAvailable();
+        if(netConnected==false)
+        {
+            Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+            return super.onOptionsItemSelected(item);
+        }
+        Intent guest=new Intent(MainActivity.this,DeveloperActivity.class);
+        startActivity(guest);
+
         //noinspection SimplifiableIfStatement
 
-
         return super.onOptionsItemSelected(item);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
