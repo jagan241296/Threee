@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.isummit.om.sample.GatePass"
+    tools:context="com.isummit.om.developers.GatePass"
     android:background="@drawable/background7">
 
     <EditText

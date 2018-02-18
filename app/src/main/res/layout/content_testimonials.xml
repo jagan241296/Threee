@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.isummit.om.sample.Testimonials"
+    tools:context="com.isummit.om.developers.Testimonials"
     android:background="@drawable/background7"
     tools:showIn="@layout/activity_testimonials">
 

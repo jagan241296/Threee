@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.isummit.om.sample.GalleryImageZoom"
+    tools:context="com.isummit.om.developers.GalleryImageZoom"
     android:background="@drawable/background_black">
 
-        <com.isummit.om.sample.TouchImageView
+        <com.isummit.om.developers.TouchImageView
             android:id="@+id/imagezoom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

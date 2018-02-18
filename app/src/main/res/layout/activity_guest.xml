@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background7"
-    tools:context="com.isummit.om.sample.Guest">
+    tools:context="com.isummit.om.developers.Guest">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout"

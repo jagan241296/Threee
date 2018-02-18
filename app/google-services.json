@@ -49,6 +49,68 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295587923757:android:066f4a1e30058b33",
+        "android_client_info": {
+          "package_name": "com.isummit.developers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295587923757-oa7mm7q3c7k9rptkamos3qb2k2mhm11l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5FgVPwAycRbfanSZDytKaJtsOxEe6cEM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295587923757:android:ac95fb583fbd3481",
+        "android_client_info": {
+          "package_name": "com.isummit.om.developers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295587923757-oa7mm7q3c7k9rptkamos3qb2k2mhm11l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5FgVPwAycRbfanSZDytKaJtsOxEe6cEM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

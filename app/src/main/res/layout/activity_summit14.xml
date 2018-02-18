@@ -11,7 +11,7 @@
     android:nestedScrollingEnabled="true"
     android:scrollbars="vertical"
     app:layout_scrollFlags="scroll|enterAlways"
-    tools:context="com.isummit.om.sample.summit14"
+    tools:context="com.isummit.om.developers.summit14"
     android:background="@drawable/background_black">
 
     <android.support.design.widget.AppBarLayout
