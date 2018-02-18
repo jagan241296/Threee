@@ -1,6 +1,7 @@
 package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,12 +29,15 @@ public class SessionActivity extends AppCompatActivity {
     private ProgressDialog progress;
     private String record;
     private String[] record_spilt;
+    private MediaPlayer mp;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
         Toolbar mToolbar =  findViewById(R.id.toolbar);
+        mp = MediaPlayer.create(this, R.raw.rooms);
+        mp.start();
         mToolbar.setTitle("Session Rooms");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

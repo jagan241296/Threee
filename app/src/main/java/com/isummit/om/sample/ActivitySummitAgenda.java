@@ -2,6 +2,7 @@ package com.isummit.om.sample;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -31,12 +32,15 @@ public class ActivitySummitAgenda extends AppCompatActivity {
     private ProgressDialog progress;
     private String record;
     private String[] record_spilt;
+    private MediaPlayer mp;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agenda_recycler);
         Toolbar mToolbar =  findViewById(R.id.toolbar);
+        mp = MediaPlayer.create(this, R.raw.summit);
+        mp.start();
         mToolbar.setTitle("3I Summit");
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

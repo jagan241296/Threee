@@ -2,6 +2,7 @@ package com.isummit.om.sample;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Pair;
@@ -18,6 +19,7 @@ public class Splash extends AppCompatActivity {
     private ImageView imageViewLogo;
     private ImageView imageViewRegister;
     private FirebaseAuth auth;
+    private MediaPlayer mp;
 
 
     @Override
@@ -28,12 +30,15 @@ public class Splash extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.welcome);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //local api's
         imageViewLogo=findViewById(R.id.three_i);
         imageViewRegister=findViewById(R.id.sign_up);
 
+        mp.start();
         //Adding animation to images
         Animation fromtop= AnimationUtils.loadAnimation(this,R.anim.slidefromtop);
         Animation frombottom=AnimationUtils.loadAnimation(this,R.anim.slidefrombottom);

@@ -22,7 +22,7 @@
 
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/linearLayouttime"
                 android:layout_width="match_parent"
                 android:layout_height="103dp"
                 android:layout_marginEnd="8dp"
@@ -65,6 +65,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/daybelow"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -95,6 +96,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/hourbelow"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -124,6 +126,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/minutebelow"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -153,6 +156,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/secondbelow"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -215,7 +219,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayouttime">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -224,12 +228,13 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/you"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:gravity="start"
-                        android:text="Go Live"
+                        android:text="Teaser"
                         android:textAlignment="textStart"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"

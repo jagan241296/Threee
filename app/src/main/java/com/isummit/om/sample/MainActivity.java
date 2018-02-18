@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 if (currentDate.before(event_date))
                 {
-                    Toast.makeText(MainActivity.this, "This page will be opened after the Event Starts",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Wait For The Event To Start",Toast.LENGTH_SHORT).show();
                     break;
                 }
                 Intent testi=new Intent(MainActivity.this,Testimonials.class);

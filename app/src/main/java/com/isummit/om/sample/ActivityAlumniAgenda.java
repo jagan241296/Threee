@@ -32,13 +32,16 @@ public class ActivityAlumniAgenda extends AppCompatActivity {
     private ProgressDialog progress;
     private String record;
     private String[] record_spilt;
+    private MediaPlayer mp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agenda_recycler);
 
         Toolbar mToolbar =  findViewById(R.id.toolbar);
+        mp = MediaPlayer.create(this, R.raw.alumni);
         mToolbar.setTitle("Alumni Agenda");
+        mp.start();
         mToolbar.setNavigationIcon(R.drawable.ic_action_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
 

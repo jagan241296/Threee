@@ -22,9 +22,10 @@ import java.util.Date;
 import static android.content.Context.MODE_PRIVATE;
 
 public class TabFragment1 extends Fragment {
-    private TextView txtTimerDay, txtTimerHour, txtTimerMinute, txtTimerSecond;
+    private TextView txtTimerDay, txtTimerHour, txtTimerMinute, txtTimerSecond, day_below, hour_below, minute_below, second_below;
     private TextView tvEvent;
     private Handler handler;
+    private TextView live;
     private Runnable runnable;
     private String val;
     private String prefName = "userNamePref";
@@ -38,11 +39,16 @@ public class TabFragment1 extends Fragment {
 
         click=rootView.findViewById(R.id.live);
 
+        live = rootView.findViewById(R.id.you);
         txtTimerDay = rootView.findViewById(R.id.txtTimerDay);
         txtTimerHour = rootView.findViewById(R.id.txtTimerHour);
         txtTimerMinute = rootView.findViewById(R.id.txtTimerMinute);
         txtTimerSecond = rootView.findViewById(R.id.txtTimerSecond);
         tvEvent = rootView.findViewById(R.id.tvhappyevent);
+        day_below = rootView.findViewById(R.id.daybelow);
+        hour_below = rootView.findViewById(R.id.hourbelow);
+        minute_below = rootView.findViewById(R.id.minutebelow);
+        second_below = rootView.findViewById(R.id.secondbelow);
 
 
         SharedPreferences prefs = this.getContext().getSharedPreferences(prefName, MODE_PRIVATE);
@@ -91,8 +97,13 @@ public class TabFragment1 extends Fragment {
                         txtTimerHour.setVisibility(View.INVISIBLE);
                         txtTimerMinute.setVisibility(View.INVISIBLE);
                         txtTimerSecond.setVisibility(View.INVISIBLE);
+                        day_below.setVisibility(View.INVISIBLE);
+                        hour_below.setVisibility(View.INVISIBLE);
+                        minute_below.setVisibility(View.INVISIBLE);
+                        second_below.setVisibility(View.INVISIBLE);
                         tvEvent.setVisibility(View.VISIBLE);
-                        tvEvent.setText("The event started!Click on Go Live");
+                        tvEvent.setText("The event has started ! Click on Go Live");
+                        tvEvent.setSingleLine(false);
                         textViewGone();
 
                     }
@@ -106,6 +117,7 @@ public class TabFragment1 extends Fragment {
 
     public void textViewGone() {
         Toast.makeText(getContext(),"Click on Go Live",Toast.LENGTH_SHORT).show();
+        live.setText("Go Live");
         handler.removeCallbacks(runnable);
 
 
