@@ -311,6 +311,18 @@ public class MainActivity extends AppCompatActivity
                 break;
             }
 
+            case R.id.website:
+            {
+                boolean netConnected=isNetworkAvailable();
+                if(netConnected==false)
+                {
+                    Toast.makeText(MainActivity.this, "Network Error...",Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.indira3isummit.com/")));
+                break;
+            }
+
             case R.id.rate_us:
             {
 

@@ -20,7 +20,7 @@ import java.util.List;
 public class DeveloperActivity extends AppCompatActivity {
 
     private DatabaseReference rootRef;
-    private List<String> developers_name, developers_clas, developers_image;
+    private List<String> developers_name, developers_clas, developers_image, developers_team;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -53,6 +53,7 @@ public class DeveloperActivity extends AppCompatActivity {
         developers_name = new ArrayList<>();
         developers_clas = new ArrayList<>();
         developers_image = new ArrayList<>();
+        developers_team = new ArrayList<>();
         onActivityLoad();
     }
 
@@ -68,7 +69,7 @@ public class DeveloperActivity extends AppCompatActivity {
 
         // specify an adapter (see also next example)
 
-        mAdapter = new DeveloperCardViewAdapter(this ,developers_name, developers_clas, developers_image);
+        mAdapter = new DeveloperCardViewAdapter(this ,developers_name, developers_clas, developers_image, developers_team);
         mAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter( mAdapter );
     }
@@ -87,7 +88,8 @@ public class DeveloperActivity extends AppCompatActivity {
                     split_data = record.split("_");
                     developers_name.add(split_data[0]);
                     developers_clas.add(split_data[1]);
-                    developers_image.add(split_data[2]);
+                    developers_team.add(split_data[2]);
+                    developers_image.add(split_data[3]);
                 }
                 FillListView();
             }

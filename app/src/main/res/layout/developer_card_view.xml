@@ -17,23 +17,25 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
+
             <android.support.v7.widget.CardView
                 android:id="@+id/inner_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:backgroundTint="@color/Orange"
-                app:cardCornerRadius="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="38dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="10dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/developer_back">
 
                     <TextView
                         android:id="@+id/name"
@@ -44,40 +46,52 @@
                         android:layout_marginTop="68dp"
                         android:text="Name"
                         android:textAlignment="center"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/clas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/name"
                         android:layout_alignTop="@+id/name"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_centerInParent="true"
-                        android:text="Class"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
+                        android:layout_marginTop="34dp"
+                        android:text="Class"
                         android:textAlignment="center"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+
+                    <TextView
+                        android:id="@+id/team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/clas"
+                        android:layout_centerHorizontal="true"
+                        android:text="ICEM Techies"
+                        android:textAlignment="center"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
-            <ImageView
+
+            <com.github.siyamed.shapeimageview.CircularImageView
                 android:id="@+id/our_pic"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignTop="@+id/inner_card"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/indira_logo"
-                android:elevation="11dp"/>
+                android:elevation="11dp"
+                android:src="@drawable/indira_logo" />
+
+
+
+
+
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

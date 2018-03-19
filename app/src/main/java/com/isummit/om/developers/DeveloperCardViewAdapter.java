@@ -20,15 +20,16 @@ import java.util.List;
  */
 
 public class DeveloperCardViewAdapter extends RecyclerView.Adapter<DeveloperCardViewAdapter.ViewHolder> {
-    public List<String> developers_name, developers_clas, developers_image;
+    public List<String> developers_name, developers_clas, developers_image, developers_team;
     private Context context;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DeveloperCardViewAdapter(Context context, List developers_name, List developers_clas, List developers_image) {
+    public DeveloperCardViewAdapter(Context context, List developers_name, List developers_clas, List developers_image, List developers_team) {
         this.context=context;
         this.developers_name = developers_name;
         this.developers_clas = developers_clas;
         this.developers_image = developers_image;
+        this.developers_team = developers_team;
     }
 
     // Create new views (invoked by the layout manager)
@@ -53,6 +54,7 @@ public class DeveloperCardViewAdapter extends RecyclerView.Adapter<DeveloperCard
 
         viewHolder.name.setText(developers_name.get(position));
         viewHolder.clas.setText(developers_clas.get(position));
+        viewHolder.team.setText(developers_team.get(position));
         Picasso.with(context).load(developers_image.get(position)).into(viewHolder.our_pic);
     }
 
@@ -66,7 +68,7 @@ public class DeveloperCardViewAdapter extends RecyclerView.Adapter<DeveloperCard
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public CardView outer_card;
-        public TextView clas, name;
+        public TextView clas, name, team;
         public ImageView our_pic;
 
         private Context context;
@@ -80,6 +82,7 @@ public class DeveloperCardViewAdapter extends RecyclerView.Adapter<DeveloperCard
             name =  itemLayoutView.findViewById(R.id.name);
             clas =  itemLayoutView.findViewById(R.id.clas);
             our_pic =  itemLayoutView.findViewById(R.id.our_pic);
+            team = itemLayoutView.findViewById(R.id.team);
 
             outer_card.setOnClickListener(new View.OnClickListener() {
                 @Override
